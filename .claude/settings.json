@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mkdir -p \"/c/Projects/Integrity-Chimney/.claude/commands\")",
+      "Bash(sed -e 's|\\\\[BUSINESS_NAME\\\\]|Integrity Chimney Services LLC|g' -e 's|\\\\[DOMAIN\\\\]|integritychimney.com|g' -e 's|\\\\[BUSINESS_TYPE\\\\]|local trade service — chimney, masonry, and roofing contractor|g' -e 's|\\\\[LOCATION\\\\]|Bow, NH|g' -e 's|\\\\[LAUNCH_TARGET\\\\]|TBD — high urgency \\(zero current online presence\\)|g' -e 's|\\\\[CORE_OFFER\\\\]|chimney cleaning, full masonry, rain caps, stainless steel liners, restoration, roofing, insurance \\\\& real estate inspections|g' -e 's|\\\\[KEY_GOAL\\\\]|establish first-ever web presence, generate inbound residential leads, support referral credibility|g' -e 's|\\\\[BOOKING_ENGINE\\\\]|Calendly \\(TBD — confirm before Phase 4\\)|g' -e 's|\\\\[SCHEMA_TYPE\\\\]|LocalBusiness \\(HomeAndConstructionBusiness\\)|g' /c/Projects/Integrity-Chimney/project-prime.md)",
+      "Bash(sed 's|\\\\[PRIMARY_AUDIENCE\\\\]|NH homeowners with wood-burning fireplaces, wood stoves, or aging chimneys; secondary: real estate agents needing pre-sale chimney inspections|g' /c/Projects/Integrity-Chimney/.claude/commands/prime.md.tmp)",
+      "Bash(rm \"/c/Projects/Integrity-Chimney/.claude/commands/prime.md.tmp\")",
+      "Bash(sed -n '19p' \"/c/Projects/Integrity-Chimney/.claude/commands/prime.md\")",
+      "Bash(sed -n '1,15p' \"/c/Projects/Integrity-Chimney/.claude/commands/prime.md\")",
+      "Read(//c/Projects/Placed-Right-Fence/web/src/**)",
+      "Read(//c/Projects/Xpertise-Painting/website/**)",
+      "Read(//c/Projects/Cody's Complete Junk Removal/src/app/**)",
+      "Read(//c/Projects/Cody's Complete Junk Removal/src/data/**)",
+      "Read(//c/Projects/Cody's Complete Junk Removal/src/components/layout/**)",
+      "Read(//c/Projects/Cody's Complete Junk Removal/src/components/**)",
+      "Read(//c/Projects/Cody's Complete Junk Removal/src/**)",
+      "Bash(xargs grep *)",
+      "Read(//c/Projects/Placed-Right-Fence/web/public/gallery/**)",
+      "Read(//c/Projects/Optimus Assets/.claude/agents/onboarding//**)",
+      "Read(//c/Projects/Optimus Assets/**)",
+      "Bash(npx create-next-app@latest /c/Projects/Integrity-Chimney/website --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --yes)",
+      "Read(//c/Projects/Placed-Right-Fence//**)",
+      "Read(//c/Projects/Placed-Right-Fence/.git/**)",
+      "Read(//c/Projects/Placed-Right-Fence/web/**)",
+      "Read(//c/Projects/Placed-Right-Fence/**)",
+      "Bash(npx tsc *)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" init)",
+      "Bash(git config *)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" add CLAUDE.md .gitignore vercel.json design-system.md initial-business-data.md market-intelligence.md progress.md project-prime.md frontend-design.md website-build-template.md .claude/ website/)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" diff --cached --name-only)"
+    ],
+    "additionalDirectories": [
+      "C:\\Projects\\Integrity-Chimney\\website\\.git"
+    ]
+  }
+}
