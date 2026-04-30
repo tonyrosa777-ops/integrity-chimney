@@ -1,0 +1,114 @@
+[
+  {
+    "slug": "01-spalled-brick-before",
+    "title": "Spalled brick before repointing",
+    "category": "masonry",
+    "aspect": "square_hd",
+    "file": "/images/gallery/01-spalled-brick-before.jpg",
+    "bytes": 292285
+  },
+  {
+    "slug": "02-repointed-brick-after",
+    "title": "Repointed brick after",
+    "category": "masonry",
+    "aspect": "square_hd",
+    "file": "/images/gallery/02-repointed-brick-after.jpg",
+    "bytes": 195219
+  },
+  {
+    "slug": "03-chimney-sweep-rooftop",
+    "title": "Chimney sweep on rooftop",
+    "category": "chimney",
+    "aspect": "landscape_16_9",
+    "file": "/images/gallery/03-chimney-sweep-rooftop.jpg",
+    "bytes": 178195
+  },
+  {
+    "slug": "04-stainless-liner-install",
+    "title": "Stainless steel liner installation",
+    "category": "chimney",
+    "aspect": "landscape_16_9",
+    "file": "/images/gallery/04-stainless-liner-install.jpg",
+    "bytes": 159762
+  },
+  {
+    "slug": "05-lime-mortar-hand",
+    "title": "Lime mortar repointing close-up",
+    "category": "historic",
+    "aspect": "portrait_4_3",
+    "file": "/images/gallery/05-lime-mortar-hand.jpg",
+    "bytes": 144549
+  },
+  {
+    "slug": "06-polished-copper-cap",
+    "title": "Polished copper chimney cap",
+    "category": "chimney",
+    "aspect": "portrait_4_3",
+    "file": "/images/gallery/06-polished-copper-cap.jpg",
+    "bytes": 191741
+  },
+  {
+    "slug": "07-aerial-cape-roofline",
+    "title": "Aerial New England Cape with center chimney",
+    "category": "roofing",
+    "aspect": "landscape_16_9",
+    "file": "/images/gallery/07-aerial-cape-roofline.jpg",
+    "bytes": 236920
+  },
+  {
+    "slug": "08-broken-crown-before",
+    "title": "Cracked chimney crown before",
+    "category": "chimney",
+    "aspect": "portrait_4_3",
+    "file": "/images/gallery/08-broken-crown-before.jpg",
+    "bytes": 171450
+  },
+  {
+    "slug": "09-rebuilt-crown-after",
+    "title": "Rebuilt chimney crown after",
+    "category": "chimney",
+    "aspect": "portrait_4_3",
+    "file": "/images/gallery/09-rebuilt-crown-after.jpg",
+    "bytes": 187689
+  },
+  {
+    "slug": "10-beehive-bake-oven",
+    "title": "Restored historic beehive bake oven",
+    "category": "historic",
+    "aspect": "portrait_4_3",
+    "file": "/images/gallery/10-beehive-bake-oven.jpg",
+    "bytes": 187822
+  },
+  {
+    "slug": "11-craftsman-ladder-approach",
+    "title": "Craftsman approaching chimney via ladder",
+    "category": "chimney",
+    "aspect": "landscape_16_9",
+    "file": "/images/gallery/11-craftsman-ladder-approach.jpg",
+    "bytes": 156990
+  },
+  {
+    "slug": "12-flue-inspection-camera",
+    "title": "Level 2 flue inspection camera",
+    "category": "inspection",
+    "aspect": "portrait_4_3",
+    "file": "/images/gallery/12-flue-inspection-camera.jpg",
+    "bytes": 132276
+  },
+  {
+    "slug": "13-historic-chimney-rebuild",
+    "title": "Historic chimney rebuild on Federal-style home",
+    "category": "historic",
+    "aspect": "landscape_16_9",
+    "file": "/images/gallery/13-historic-chimney-rebuild.jpg",
+    "bytes": 322924
+  },
+  {
+    "slug": "14-wood-stove-insert",
+    "title": "Wood-stove insert with stainless liner",
+    "category": "chimney",
+    "aspect": "portrait_4_3",
+    "file": "/images/gallery/14-wood-stove-insert.jpg",
+    "bytes": 317297
+  }
+]
