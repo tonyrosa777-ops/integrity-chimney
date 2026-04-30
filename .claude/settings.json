@@ -38,7 +38,20 @@
       "Bash(rm -f count_site.mjs)",
       "Bash(awk '/^export const testimonials/,/^\\\\];/' src/data/site.ts)",
       "Bash(git -C \"/c/Projects/Integrity-Chimney\" add -A)",
-      "Bash(git -C \"/c/Projects/Integrity-Chimney\" diff --cached --stat)"
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" diff --cached --stat)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" remote -v)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" branch --show-current)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" log --oneline)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" log --all --full-history --name-only --pretty=format:)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" ls-files)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" remote add origin https://github.com/tonyrosa777-ops/integrity-chimney.git)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" branch -M main)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" push -u origin main)",
+      "Bash(echo \"---EXIT: $?---\")",
+      "Bash(echo \"EXIT_CODE=$?\")",
+      "Bash(npx eslint *)",
+      "Bash(node -e \"const {testimonials} = require\\('./src/data/site.ts'\\); console.log\\(testimonials.length\\);\")",
+      "Bash(node --experimental-strip-types -e \"import\\('./src/data/site.ts'\\).then\\(m => console.log\\(m.testimonials.length\\)\\)\")"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git"
