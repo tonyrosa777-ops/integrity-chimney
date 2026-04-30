@@ -27,7 +27,18 @@
       "Bash(git -C \"/c/Projects/Integrity-Chimney\" init)",
       "Bash(git config *)",
       "Bash(git -C \"/c/Projects/Integrity-Chimney\" add CLAUDE.md .gitignore vercel.json design-system.md initial-business-data.md market-intelligence.md progress.md project-prime.md frontend-design.md website-build-template.md .claude/ website/)",
-      "Bash(git -C \"/c/Projects/Integrity-Chimney\" diff --cached --name-only)"
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" diff --cached --name-only)",
+      "Bash(git -C /c/Projects/Integrity-Chimney commit -m ' *)",
+      "Read(//c/Users/Anthony/.claude/agents/build/**)",
+      "Bash(awk -F— 'NF>1 {for \\(i=1;i<NF;i++\\) print NR\":\"$i\"—\"}' src/data/site.ts)",
+      "Bash(node -e ' *)",
+      "Bash(grep -c '^  {$' src/data/site.ts)",
+      "Bash(npx tsx *)",
+      "Bash(cat)",
+      "Bash(rm -f count_site.mjs)",
+      "Bash(awk '/^export const testimonials/,/^\\\\];/' src/data/site.ts)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" add -A)",
+      "Bash(git -C \"/c/Projects/Integrity-Chimney\" diff --cached --stat)"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git"

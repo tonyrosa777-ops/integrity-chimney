@@ -18,7 +18,7 @@
 | Phase | Name | Status |
 |-------|------|--------|
 | 0 | Project Initialization | ✅ Complete |
-| 1 | Research + Design System | 🔄 In Progress (Stage 1A complete; Stage 1B next) |
+| 1 | Research + Design System | 🔄 In Progress (Stages 1A, 1B, 1C complete; Stage 1D next) |
 | 2 | Scaffold | ⬜ Not Started |
 | 3 | Design System + Hero | ⬜ Not Started |
 | 4 | Homepage Sections | ⬜ Not Started |
@@ -54,8 +54,8 @@
 |------|--------|-------|
 | 1A — Repo Scan | ✅ Complete | 3 parallel Explore agents scanned Placed-Right-Fence, Xpertise-Painting, Cody's Junk Removal. Findings synthesized below. |
 | 1B — Research + Design System | ✅ Complete | market-researcher: skipped (market-intelligence.md exists). design-synthesizer: complete — design-system.md is 369 lines / 6,579 words / all 11 sections / Sections Matrix verdict 8 IN / 2 OUT / 9 Custom. Approved 2026-04-30 (Anthony delegated decision authority; all design choices market-intel-traceable). |
-| 1C — Scaffold | 🔄 In Progress | Orchestrator-direct (no agents). Reading template Stack section, then create-next-app, then deps, tokens, site.ts, dirs, animations, vercel.json, .env.local, initial commit. |
-| 1D — Content + Animation (parallel) | ⬜ Not Started | |
+| 1C — Scaffold | ✅ Complete | Next.js 16.2.4 + Tailwind v4 + React 19. Deps: framer-motion, react-intersection-observer, react-hook-form, zod, @fal-ai/client, resend, @radix-ui/react-accordion, next-sanity, @sanity/image-url, clsx, tailwind-merge. Globals.css with locked design tokens. Layout.tsx with Fraunces/Inter Tight/JetBrains Mono. site.ts schema. lib/utils.ts. 8 animation wrappers + barrel export. vercel.json (rootDir: website). .env.local. .gitignore. Initial commit `chore(init): scaffold per website-build-template.md with design tokens`. tsc --noEmit passes. |
+| 1D — Content + Animation (parallel) | ✅ Complete | content-writer + animation-specialist run in parallel. site.ts: 1,372 lines, 11,081 words, 11 services, 36 testimonials (9×4 paginated), 6 service areas (all 6 locked towns), 5-step quiz with 5 outcomes routing to /booking, 5 pricing line items at locked prices, 4 pain points, 14 FAQs, zero em dashes, zero TODO/INSERT/lorem strings. Hero.tsx: 174 lines (sections/Hero.tsx). EmberDriftCanvas.tsx: 354 lines (animations/, 50/25/12 particles by viewport, prefers-reduced-motion handled, document.hidden pause, 30s idle pause, debounced resize, DPR cap 2, heat-shimmer SVG filter implemented). Both files compile clean. CTA verification: Primary→/booking, Secondary→/quiz, all 5 quiz outcomes→/booking. Phone reserved for nav (not hero CTA). Stage 1D human checkpoint approved 2026-04-30 by senior-engineer call. |
 | 1E — All Pages | ⬜ Not Started | |
 | 1F — SEO + AEO | ⬜ Not Started | |
 | 1G — Assets | ⬜ Not Started | Will block on FAL_KEY |
@@ -99,6 +99,31 @@ NH-based trade contractor; mirrors Integrity's structural needs almost 1-for-1: 
 - Snipcart shop (Xpertise) — Integrity is Pro tier, no shop.
 - "Female-Owned" / "1% to shelter" / "Veteran-Owned" / "Faith-based" framings (across multiple repos) — market intel §9 Avoid #5 explicitly: those positions are taken or wrong fit. Integrity's positioning is Heritage + Trust + Multi-Trade Craftsmanship.
 - Junk-removal service categories (hoarding, mattress, e-waste) — domain-irrelevant.
+
+### Hero Layout — locked 2026-04-30 for Stage 1D animation-specialist
+
+**Background stack (3 layers, GPU-cheap, ≤0.3Hz per Pattern #51):**
+1. Base: `var(--bg-base)` `#0a0a0a`
+2. Mid: low-opacity masonry-texture image (placeholder pending fal.ai gen) with `mix-blend-mode: overlay` at 6% alpha
+3. Foreground: ember-drift canvas — copper hot-core particles (rgb(184,115,51)) with brick edge (rgb(127,42,31)) rising from bottom 30%, count 40-60, lifetime 8-12s, drift speed 6-12px/s. Subtle heat-shimmer displacement (CSS `filter: blur(0.4px)` + sin-wave SVG turbulence) over the bottom 50% only. Honors `prefers-reduced-motion` → static gradient fallback.
+
+**Above-the-fold content order (mobile-first, hero text starts within ~32px of nav per Optimus mobile QA gate):**
+1. **24-hour callback SLA promise band** — slim full-width strip at very top, `var(--bg-elevated)` background, mono eyebrow text in `var(--accent)`. Always visible, scrolls with page. Copy: market-intel §9 Do #2 phrasing.
+2. **Eyebrow** — mono uppercase `text-eyebrow` class, copper accent. e.g. `BOW, NH · CHIMNEY · MASONRY · ROOFING`
+3. **H1** — Fraunces display, `text-display`, hero-shimmer class for the brick→copper sweep. Two-line max on desktop, three-line max on mobile. Owner-named or service-trifecta framing.
+4. **Subhead** — Inter Tight 400, `text-secondary`, max 28 words. Trust + scope in one breath.
+5. **CTA pair** — primary "Book Inspection" → `/booking` (filled brick `--primary`), secondary "Take the Quiz" → `/quiz` (outlined copper `--accent`). Side-by-side desktop, stacked mobile.
+6. **Trust band** — single horizontal row at the bottom of hero: `Fully Insured` / `BBB A+` / `Free Estimates` / `15+ Years` (badges from initial-business-data §7 + card-verified). Mono labels, copper underlines. NO logos for unverified certs (CSIA/NCSG flagged in Section 11 open question).
+
+**Owner-name signature line** (per design-system Section 9 — Crown differentiation):
+- Position: just under the trust band OR as a smaller line in the hero — animation-specialist's call.
+- Copy direction (content-writer's deliverable, not animation-specialist's): something in the spirit of "Fifteen years on Bow rooftops. — Kevin Fredrickson." Final wording is content-writer's call.
+
+**Hero file ownership:**
+- `src/components/sections/Hero.tsx` — owned by animation-specialist (this stage)
+- `src/components/animations/EmberDriftCanvas.tsx` — owned by animation-specialist (this stage)
+- All hero copy in `src/data/site.ts` `hero` object — owned by content-writer (this stage)
+- No conflicts: animation-specialist imports from `site.ts`, content-writer doesn't touch components
 
 ### Inputs handed forward to Stage 1B (design-synthesizer)
 
