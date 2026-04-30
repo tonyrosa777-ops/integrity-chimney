@@ -1,14 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { nav, siteConfig } from "@/data/site";
+import { nav, serviceAreas, siteConfig } from "@/data/site";
 import { telHref } from "@/lib/utils";
+
+const SERVICE_AREAS_LABEL = "Service Areas";
+const SERVICE_AREAS_HREF = "/service-areas";
 
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [areasOpen, setAreasOpen] = useState(false);
+  const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -24,6 +30,21 @@ export function Navigation() {
     window.addEventListener("popstate", close);
     return () => window.removeEventListener("popstate", close);
   }, [open]);
+
+  // Click-outside closes the desktop "Service Areas" dropdown.
+  useEffect(() => {
+    if (!areasOpen) return;
+    const onMouseDown = (e: MouseEvent) => {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(e.target as Node)
+      ) {
+        setAreasOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onMouseDown);
+    return () => document.removeEventListener("mousedown", onMouseDown);
+  }, [areasOpen]);
 
   return (
     <>
@@ -47,15 +68,98 @@ export function Navigation() {
             </Link>
 
             <nav className="hidden lg:flex items-center gap-7" aria-label="Primary">
-              {nav.primary.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-sm text-text-secondary hover:text-accent transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              {nav.primary.map((item) => {
+                if (item.label === SERVICE_AREAS_LABEL) {
+                  return (
+                    <div
+                      key={item.href}
+                      ref={dropdownRef}
+                      className="relative"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => setAreasOpen((v) => !v)}
+                        aria-expanded={areasOpen}
+                        aria-haspopup="menu"
+                        className="inline-flex items-center gap-1 text-sm text-text-secondary hover:text-accent transition-colors"
+                      >
+                        {item.label}
+                        <span
+                          aria-hidden="true"
+                          className={`inline-block text-[0.6rem] transition-transform duration-200 ${
+                            areasOpen ? "rotate-180" : ""
+                          }`}
+                        >
+                          ▾
+                        </span>
+                      </button>
+
+                      <AnimatePresence>
+                        {areasOpen && (
+                          <motion.div
+                            role="menu"
+                            initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                            transition={{ duration: 0.15 }}
+                            className="absolute left-1/2 top-full mt-3 w-[320px] -translate-x-1/2 rounded-md border border-white/10 bg-bg-elevated shadow-2xl"
+                          >
+                            <div className="px-4 pt-4">
+                              <p
+                                className="font-mono text-[0.65rem] uppercase tracking-[0.14em]"
+                                style={{ color: "var(--accent)" }}
+                              >
+                                Central New Hampshire
+                              </p>
+                            </div>
+                            <ul className="grid grid-cols-1 gap-1 p-3" role="none">
+                              {serviceAreas.map((area) => (
+                                <li key={area.slug} role="none">
+                                  <Link
+                                    role="menuitem"
+                                    href={`/service-areas/${area.slug}`}
+                                    onClick={() => setAreasOpen(false)}
+                                    className="group flex items-center justify-between gap-3 rounded-sm px-3 py-2 text-sm text-text-primary transition-colors hover:bg-[rgba(184,115,51,0.08)] hover:text-accent"
+                                  >
+                                    <span>
+                                      {area.city}, {area.state}
+                                    </span>
+                                    <span
+                                      aria-hidden="true"
+                                      className="font-mono text-[0.65rem] uppercase tracking-[0.1em] text-text-muted group-hover:text-accent"
+                                    >
+                                      {area.distance}
+                                    </span>
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                            <div className="border-t border-white/10 px-4 py-3">
+                              <Link
+                                href={SERVICE_AREAS_HREF}
+                                onClick={() => setAreasOpen(false)}
+                                className="font-mono text-xs uppercase tracking-wider text-accent hover:opacity-80"
+                              >
+                                View All Service Areas →
+                              </Link>
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                }
+
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-sm text-text-secondary hover:text-accent transition-colors"
+                  >
+                    {item.label}
+                  </Link>
+                );
+              })}
             </nav>
 
             <div className="hidden md:flex items-center gap-3">
@@ -152,17 +256,74 @@ export function Navigation() {
                 </button>
               </div>
 
-              <nav className="flex-1 flex flex-col gap-1" aria-label="Primary mobile">
-                {nav.primary.map((item) => (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className="py-3 text-base text-text-primary hover:text-accent transition-colors border-b border-white/5"
-                    onClick={() => setOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
+              <nav className="flex-1 flex flex-col gap-1 overflow-y-auto" aria-label="Primary mobile">
+                {nav.primary.map((item) => {
+                  if (item.label === SERVICE_AREAS_LABEL) {
+                    return (
+                      <div key={item.href} className="border-b border-white/5">
+                        <button
+                          type="button"
+                          onClick={() => setMobileAreasOpen((v) => !v)}
+                          aria-expanded={mobileAreasOpen}
+                          className="flex w-full items-center justify-between py-3 text-left text-base text-text-primary hover:text-accent transition-colors"
+                        >
+                          <span>{item.label}</span>
+                          <span
+                            aria-hidden="true"
+                            className={`inline-block text-[0.7rem] transition-transform duration-200 ${
+                              mobileAreasOpen ? "rotate-180" : ""
+                            }`}
+                          >
+                            ▾
+                          </span>
+                        </button>
+                        <AnimatePresence>
+                          {mobileAreasOpen && (
+                            <motion.ul
+                              initial={{ height: 0, opacity: 0 }}
+                              animate={{ height: "auto", opacity: 1 }}
+                              exit={{ height: 0, opacity: 0 }}
+                              transition={{ duration: 0.2 }}
+                              className="overflow-hidden"
+                            >
+                              {serviceAreas.map((area) => (
+                                <li key={area.slug}>
+                                  <Link
+                                    href={`/service-areas/${area.slug}`}
+                                    onClick={() => setOpen(false)}
+                                    className="block py-2 pl-4 text-sm text-text-secondary hover:text-accent"
+                                  >
+                                    {area.city}, {area.state}
+                                  </Link>
+                                </li>
+                              ))}
+                              <li>
+                                <Link
+                                  href={SERVICE_AREAS_HREF}
+                                  onClick={() => setOpen(false)}
+                                  className="font-mono mt-1 mb-3 block py-2 pl-4 text-xs uppercase tracking-wider text-accent hover:opacity-80"
+                                >
+                                  View All Service Areas →
+                                </Link>
+                              </li>
+                            </motion.ul>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    );
+                  }
+
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className="py-3 text-base text-text-primary hover:text-accent transition-colors border-b border-white/5"
+                      onClick={() => setOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
               </nav>
 
               <div className="pt-4 mt-4 border-t border-white/10 flex flex-col gap-3">
