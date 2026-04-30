@@ -17,7 +17,20 @@ import { telHref } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Historic Chimney & Masonry Restoration in NH",
   description:
-    "Lime mortar repointing, Rumford fireplaces, beehive bake ovens, center-chimney restoration. Period-appropriate work on Federal-era and pre-1900 NH homes. 15+ years owner-operated out of Bow.",
+    "Lime mortar repointing, Rumford fireplace rebuilds, and beehive bake oven restoration on Federal-era and pre-1900 NH homes. Bow, Henniker, Hopkinton.",
+  openGraph: {
+    title:
+      "Historic Chimney & Masonry Restoration in NH | Integrity Chimney Services",
+    description:
+      "NPS Preservation Brief 2 standards. Type O lime mortar, period brick, Rumford geometry. Owner-operated by a fifteen-year Bow craftsman.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Historic Chimney & Masonry Restoration in NH | Integrity Chimney Services",
+    description:
+      "NPS Preservation Brief 2 standards. Type O lime mortar, period brick, Rumford geometry. Owner-operated by a fifteen-year Bow craftsman.",
+  },
 };
 
 const SPECIALTIES = [

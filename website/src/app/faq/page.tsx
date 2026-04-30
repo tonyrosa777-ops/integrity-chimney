@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeUp } from "@/components/animations";
 import { Button } from "@/components/ui/Button";
+import { FAQSchema } from "@/components/seo";
 import { faq, siteConfig } from "@/data/site";
 import { FAQAccordion } from "./FAQAccordion";
 
@@ -13,7 +14,18 @@ import { FAQAccordion } from "./FAQAccordion";
 export const metadata: Metadata = {
   title: "Frequently Asked Questions",
   description:
-    "Pricing, scheduling, Level 2 inspections, real estate timelines, scams to watch for, and more. Real answers from a Bow, NH chimney company.",
+    "Pricing, Level 2 inspections, real estate timelines, NH chimney scams, lime mortar, warranties, and how fast we call back. Plain answers from Bow.",
+  openGraph: {
+    title: "Frequently Asked Questions | Integrity Chimney Services LLC",
+    description:
+      "Plain answers on pricing, Level 2 inspections, real estate timelines, scams, lime mortar, and warranties from a Bow, NH chimney craftsman.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Frequently Asked Questions | Integrity Chimney Services LLC",
+    description:
+      "Plain answers on pricing, Level 2 inspections, real estate timelines, scams, lime mortar, and warranties from a Bow, NH chimney craftsman.",
+  },
 };
 
 type FaqItem = (typeof faq)[number];
@@ -38,6 +50,7 @@ export default function FaqPage() {
 
   return (
     <>
+      <FAQSchema faqs={faq.map((f) => ({ q: f.q, a: f.a }))} />
       {/* ============== Hero ============== */}
       <section
         className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20"

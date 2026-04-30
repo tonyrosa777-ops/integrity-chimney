@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Fraunces, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
+import { LocalBusinessSchema, WebsiteSchema } from "@/components/seo";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -36,11 +37,22 @@ export const metadata: Metadata = {
     template: "%s | Integrity Chimney Services LLC",
   },
   description:
-    "Fifteen years on Bow rooftops. Chimney sweeps, Level 2 inspections, historic restoration, masonry, and roofing across Central NH. Free estimates, 24-hour callback, fully insured.",
+    "Fifteen years on Bow rooftops. Chimney sweeps, Level 2 inspections, historic restoration, masonry, and roofing across central NH. Free estimates, 24-hour callback, fully insured.",
   openGraph: {
     type: "website",
     locale: "en_US",
     siteName: "Integrity Chimney Services LLC",
+    title:
+      "Integrity Chimney Services LLC | Bow, NH Chimney + Masonry + Roofing",
+    description:
+      "Fifteen years on Bow rooftops. Chimney, masonry, and roofing across central NH. 24-hour callback or your free estimate is on us.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Integrity Chimney Services LLC | Bow, NH Chimney + Masonry + Roofing",
+    description:
+      "Fifteen years on Bow rooftops. Chimney, masonry, and roofing across central NH. 24-hour callback or your free estimate is on us.",
   },
   robots: { index: true, follow: true },
 };
@@ -56,6 +68,8 @@ export default function RootLayout({
       className={`${fraunces.variable} ${interTight.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <LocalBusinessSchema />
+        <WebsiteSchema />
         <Navigation />
         <main className="flex-1">{children}</main>
         <Footer />

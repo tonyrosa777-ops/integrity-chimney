@@ -14,12 +14,18 @@ import { telHref } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Services | Chimney, Masonry, and Roofing in Central NH",
   description:
-    "Owner-operated chimney sweeps, Level 2 inspections, masonry rebuilds, historic restoration, and roofing across Bow, Concord, Hopkinton, Henniker, Loudon, and Pembroke. Free estimates. Same-week scheduling for real estate transactions.",
+    "Chimney sweeps, Level 2 inspections, stainless liners, crown rebuilds, lime mortar restoration, and architectural roofing across Bow and central NH.",
   openGraph: {
     title: "Services | Integrity Chimney Services LLC",
     description:
-      "Chimney, masonry, and roofing services across central NH. 15+ years owner-operated. Fully insured. Free estimates.",
+      "Eleven owner-operated chimney, masonry, and roofing services across central New Hampshire. Fifteen years on Bow rooftops. Free estimates.",
     url: `${siteConfig.url}/services`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Services | Integrity Chimney Services LLC",
+    description:
+      "Eleven owner-operated chimney, masonry, and roofing services across central New Hampshire. Fifteen years on Bow rooftops. Free estimates.",
   },
 };
 

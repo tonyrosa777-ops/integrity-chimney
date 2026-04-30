@@ -9,13 +9,21 @@ import { Quiz } from "@/components/quiz/Quiz";
 import { quiz } from "@/data/site";
 
 export function generateMetadata(): Metadata {
+  const description =
+    "Five questions, sixty seconds. We point you to the right chimney, masonry, or roofing service for your situation in Bow, NH and central New Hampshire.";
   return {
     title: "Find Your Chimney Service Quiz",
-    description: quiz.hookBody,
+    description,
     openGraph: {
       title:
         "Find Your Chimney Service Quiz | Integrity Chimney Services LLC",
-      description: quiz.hookBody,
+      description,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title:
+        "Find Your Chimney Service Quiz | Integrity Chimney Services LLC",
+      description,
     },
   };
 }

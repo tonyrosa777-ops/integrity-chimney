@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeUp } from "@/components/animations";
 import { Button } from "@/components/ui/Button";
+import { FAQSchema } from "@/components/seo";
 import { siteConfig } from "@/data/site";
 import { telHref } from "@/lib/utils";
 
@@ -9,14 +10,27 @@ import { telHref } from "@/lib/utils";
  * /chimney-scams-nh - long-form consumer guide.
  *
  * Source: market-intelligence.md §5 Gap 6, §9 Exploit #1 (reinforces the
- * "Integrity" brand-name claim, defensive content). Schema-ready data
- * structure shipped here; full HowTo/FAQPage JSON-LD is Stage 1F's job.
+ * "Integrity" brand-name claim, defensive content). FAQPage JSON-LD is mounted
+ * via FAQSchema using RED_FLAGS as the source FAQ items.
  */
 
 export const metadata: Metadata = {
   title: "How to Spot a Chimney Scam in New Hampshire (2026)",
   description:
-    "The $99 cold-call sweep that turns into a $2,000 liner upsell is the most common chimney scam in NH. Five red flags, a verification checklist, and what to do if you got the call.",
+    "Five red flags on cold-call $99 sweeps and $2,000 liner upsells, a four-step contractor verification checklist, and what to do if a NH chimney scam called.",
+  openGraph: {
+    title:
+      "How to Spot a Chimney Scam in New Hampshire | Integrity Chimney Services",
+    description:
+      "Five red flags on cold-call $99 sweeps, a verification checklist, and what to do if a NH chimney scam called your house this winter.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "How to Spot a Chimney Scam in New Hampshire | Integrity Chimney Services",
+    description:
+      "Five red flags on cold-call $99 sweeps, a verification checklist, and what to do if a NH chimney scam called your house this winter.",
+  },
 };
 
 const RED_FLAGS: Array<{ n: string; title: string; body: string; tip: string }> = [
@@ -72,8 +86,14 @@ const VERIFICATION_CHECKLIST = [
 ];
 
 export default function ChimneyScamsNHPage() {
+  const scamFaqs = RED_FLAGS.map((f) => ({
+    q: `Chimney scam red flag: ${f.title}`,
+    a: `${f.body} What to do: ${f.tip}`,
+  }));
+
   return (
     <>
+      <FAQSchema faqs={scamFaqs} />
       {/* ============== Hero (DARK) ============== */}
       <section
         className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28"

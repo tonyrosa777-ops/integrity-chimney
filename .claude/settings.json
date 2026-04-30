@@ -56,7 +56,8 @@
       "Bash(python -c ' *)",
       "Bash(grep -nE \"#[0-9a-fA-F]{3,8}\\\\b\" c:/Projects/Integrity-Chimney/website/src/app/historic-restoration/page.tsx c:/Projects/Integrity-Chimney/website/src/app/for-realtors/page.tsx c:/Projects/Integrity-Chimney/website/src/app/exterior-envelope/page.tsx c:/Projects/Integrity-Chimney/website/src/app/chimney-scams-nh/page.tsx c:/Projects/Integrity-Chimney/website/src/app/for-realtors/RealtorIntakeForm.tsx)",
       "Bash(node -e \"console.log\\(require\\('resend/package.json'\\).version\\)\")",
-      "Bash(echo \"TSC_EXIT=$?\")"
+      "Bash(echo \"TSC_EXIT=$?\")",
+      "Bash(npx next *)"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git"

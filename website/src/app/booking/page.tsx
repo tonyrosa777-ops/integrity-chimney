@@ -19,12 +19,18 @@ export function generateMetadata(): Metadata {
   return {
     title: "Book Inspection | Integrity Chimney Services LLC",
     description:
-      "Book a chimney inspection or service visit with Integrity Chimney Services. Pick a date, choose a time, and we'll confirm within 24 hours.",
+      "Pick a date and time for a chimney sweep, Level 2 inspection, masonry visit, or roof inspection in Bow, NH. Same-week real estate scheduling.",
     openGraph: {
       title: "Book Inspection | Integrity Chimney Services LLC",
       description:
-        "Pick a date, choose a time. Free estimates, fully insured, same-week scheduling across central New Hampshire.",
+        "Pick a date, choose a time. Free estimates, fully insured, same-week scheduling for real estate transactions across central NH.",
       url: `${siteConfig.url}/booking`,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Book Inspection | Integrity Chimney Services LLC",
+      description:
+        "Pick a date, choose a time. Free estimates, fully insured, same-week scheduling for real estate transactions across central NH.",
     },
   };
 }

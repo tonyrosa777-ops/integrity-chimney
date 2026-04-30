@@ -14,10 +14,21 @@ import { PostCard } from "@/components/blog/PostCard";
 import { NewsletterForm } from "@/components/blog/NewsletterForm";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog · Notes from the Chimney",
   description:
-    "Plain-English answers to the questions homeowners actually call about. Field notes from the Bow, NH chimney, masonry, and roofing crew at Integrity Chimney Services.",
+    "Field notes on chimney sweeps, Level 2 inspections, lime mortar, NH masonry, and roofing. Plain answers from a Bow, NH owner-operator on real homeowner questions.",
   alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog · Notes from the Chimney | Integrity Chimney Services LLC",
+    description:
+      "Plain answers on chimney work, Level 2 inspections, lime mortar, and NH masonry from a working craftsman in Bow.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog · Notes from the Chimney | Integrity Chimney Services LLC",
+    description:
+      "Plain answers on chimney work, Level 2 inspections, lime mortar, and NH masonry from a working craftsman in Bow.",
+  },
 };
 
 const PLACEHOLDER_PREVIEWS = [

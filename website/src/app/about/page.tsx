@@ -13,7 +13,18 @@ import { founder, siteConfig, testimonials } from "@/data/site";
 export const metadata: Metadata = {
   title: "About Kevin Fredrickson",
   description:
-    "Owner-operated chimney, masonry, and roofing in Bow, NH. Fifteen years on central NH rooftops. We answer the phone and tell you what your chimney actually needs.",
+    "Meet Kevin Fredrickson. Owner-operator, fifteen years on Bow rooftops, fully insured. Answers the phone, climbs the roof, writes the quote himself.",
+  openGraph: {
+    title: "About Kevin Fredrickson | Integrity Chimney Services LLC",
+    description:
+      "Owner-operator from Bow, NH. Fifteen years of chimney, masonry, and roofing on central New Hampshire homes. The craftsman behind the company.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Kevin Fredrickson | Integrity Chimney Services LLC",
+    description:
+      "Owner-operator from Bow, NH. Fifteen years of chimney, masonry, and roofing on central New Hampshire homes. The craftsman behind the company.",
+  },
 };
 
 const HISTORIC_SERVICES = new Set([

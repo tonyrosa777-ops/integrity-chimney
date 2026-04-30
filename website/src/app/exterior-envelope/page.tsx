@@ -17,7 +17,20 @@ import { telHref } from "@/lib/utils";
 export const metadata: Metadata = {
   title: "Exterior Envelope Inspection · Chimney + Roof + Flashing + Ice Dam",
   description:
-    "$99 four-point inspection. Chimney, roof, flashing, ice dam risk. One owner. One quote. One warranty. No finger-pointing between the roofer and the chimney guy. Central NH only.",
+    "$99 four-point chimney, roof, flashing, and ice-dam inspection. One contractor. One quote. One warranty. Central NH bundle nobody else merchandises.",
+  openGraph: {
+    title:
+      "Exterior Envelope Inspection | Chimney + Roof + Flashing | Integrity Chimney",
+    description:
+      "Four-point exterior envelope inspection: chimney, roof, flashing, and ice dam risk. $99 bundled, $99 waived against any work over $2K. Central NH.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Exterior Envelope Inspection | Chimney + Roof + Flashing | Integrity Chimney",
+    description:
+      "Four-point exterior envelope inspection: chimney, roof, flashing, and ice dam risk. $99 bundled, $99 waived against any work over $2K. Central NH.",
+  },
 };
 
 const FOUR_POINTS = [

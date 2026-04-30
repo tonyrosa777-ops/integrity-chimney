@@ -10,14 +10,20 @@ import { ServiceAreasClient } from "./ServiceAreasClient";
 import { FinalCTA } from "@/components/sections/FinalCTA";
 
 export const metadata: Metadata = {
-  title: "Service Areas | Integrity Chimney Services LLC",
+  title: "Service Areas | Central NH Chimney, Masonry, and Roofing Coverage",
   description:
-    "Chimney, masonry, and roofing across Bow, Concord, Hopkinton, Henniker, Loudon, and Pembroke. Owner-operated. Free estimates. 24-hour callback.",
+    "Six-town coverage across central New Hampshire: Bow, Concord, Hopkinton, Henniker, Loudon, and Pembroke. Same-week scheduling, 24-hour callback.",
   openGraph: {
     title: "Service Areas | Integrity Chimney Services LLC",
     description:
-      "Six central NH towns we know by name and by chimney. Bow, Concord, Hopkinton, Henniker, Loudon, Pembroke.",
+      "Six central NH towns we know by name and by chimney. Bow, Concord, Hopkinton, Henniker, Loudon, Pembroke. Owner-operated coverage.",
     url: `${siteConfig.url}/service-areas`,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Service Areas | Integrity Chimney Services LLC",
+    description:
+      "Six central NH towns we know by name and by chimney. Bow, Concord, Hopkinton, Henniker, Loudon, Pembroke. Owner-operated coverage.",
   },
 };
 

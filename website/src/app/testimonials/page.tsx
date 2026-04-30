@@ -13,7 +13,18 @@ import { TestimonialsGrid } from "./TestimonialsGrid";
 export const metadata: Metadata = {
   title: "Testimonials",
   description:
-    "36 chimney projects, 36 referrals. What clients across Bow, Concord, Henniker, Hopkinton, and central NH say about working with Integrity Chimney Services.",
+    "Thirty-six client stories from Bow, Concord, Hopkinton, Henniker, Loudon, and Pembroke. Realtors, historic-home owners, and central NH homeowners.",
+  openGraph: {
+    title: "Testimonials | Integrity Chimney Services LLC",
+    description:
+      "Thirty-six chimney, masonry, and roofing projects across central NH. Real names, real towns, real work documented in photos.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Testimonials | Integrity Chimney Services LLC",
+    description:
+      "Thirty-six chimney, masonry, and roofing projects across central NH. Real names, real towns, real work documented in photos.",
+  },
 };
 
 export default function TestimonialsPage() {

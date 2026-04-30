@@ -18,7 +18,20 @@ import { RealtorIntakeForm } from "./RealtorIntakeForm";
 export const metadata: Metadata = {
   title: "For Realtors: Chimney Inspections Built for Closing Dates",
   description:
-    "$295 flat. 24-hour written PDF report. Same-week scheduling for central NH transactions under contract. NHAR-aligned. LAER Preferred Partner. 15+ years owner-operated.",
+    "$295 flat Level 2 chimney inspections with a 24-hour written PDF. Same-week scheduling for central NH transactions under contract. NHAR-aligned.",
+  openGraph: {
+    title:
+      "For Realtors | NH Level 2 Chimney Inspection · 24-Hour PDF · Integrity Chimney",
+    description:
+      "$295 flat. NFPA 211 Level 2 inspection. Branded PDF report in your inbox within 24 hours. Same-week scheduling for closings across central NH.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "For Realtors | NH Level 2 Chimney Inspection · 24-Hour PDF · Integrity Chimney",
+    description:
+      "$295 flat. NFPA 211 Level 2 inspection. Branded PDF report in your inbox within 24 hours. Same-week scheduling for closings across central NH.",
+  },
 };
 
 const WHAT_YOU_GET = [

@@ -12,7 +12,18 @@ import { ContactForm } from "./ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Phone, email, and a contact form for Integrity Chimney Services in Bow, NH. We answer the phone. If we miss, we call back within 4 business hours.",
+    "Call (603) 660-4644 or email IntegrityChimney1@gmail.com. We answer the phone in Bow, NH. If we miss, we call back within four business hours.",
+  openGraph: {
+    title: "Contact Integrity Chimney Services LLC | Bow, NH",
+    description:
+      "Call, email, or fill out the form. Bow, NH chimney, masonry, and roofing. Four-hour callback guaranteed during business hours.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Integrity Chimney Services LLC | Bow, NH",
+    description:
+      "Call, email, or fill out the form. Bow, NH chimney, masonry, and roofing. Four-hour callback guaranteed during business hours.",
+  },
 };
 
 const MAPS_EMBED_SRC = `https://maps.google.com/maps?q=${encodeURIComponent(

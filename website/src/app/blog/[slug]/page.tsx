@@ -32,6 +32,7 @@ import { PostBody, slugifyHeading } from "@/components/blog/PostBody";
 import { TableOfContents, type TocEntry } from "@/components/blog/TableOfContents";
 import { PostCard } from "@/components/blog/PostCard";
 import { NewsletterForm } from "@/components/blog/NewsletterForm";
+import { BreadcrumbSchema } from "@/components/seo";
 import { siteConfig } from "@/data/site";
 
 type RouteProps = {
@@ -206,6 +207,13 @@ export default async function BlogPostPage({ params }: RouteProps) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
       ) : null}
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", href: "/" },
+          { name: "Blog", href: "/blog" },
+          { name: post.title, href: `/blog/${post.slug}` },
+        ]}
+      />
 
       {/* Hero ------------------------------------------------------- */}
       <header className="border-b border-text-primary/10">
