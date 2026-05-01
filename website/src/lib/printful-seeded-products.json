@@ -1,0 +1,176 @@
+{
+  "storeId": 0,
+  "demo": true,
+  "products": [
+    {
+      "id": "ic-cap-embroidered",
+      "slug": "integrity-chimney-embroidered-cap",
+      "name": "Integrity Chimney Embroidered Cap",
+      "category": "Hats",
+      "price": 2800,
+      "description": "Six-panel structured cap with the Integrity Chimney mark embroidered front and center. Built for long days on the ladder.",
+      "preview_image_url": "/images/gallery/06-polished-copper-cap.jpg",
+      "variants": [
+        { "id": "ic-cap-black", "name": "Black", "color": "Black", "price": 2800 },
+        { "id": "ic-cap-charcoal", "name": "Charcoal", "color": "Charcoal", "price": 2800 },
+        { "id": "ic-cap-brick", "name": "Heritage Brick", "color": "Heritage Brick", "price": 2800 }
+      ]
+    },
+    {
+      "id": "ic-hoodie-heavyweight",
+      "slug": "heavyweight-hooded-sweatshirt",
+      "name": "Heavyweight Hooded Sweatshirt",
+      "category": "Apparel",
+      "price": 6500,
+      "description": "Heavyweight pullover hoodie with chest logo and lined hood. Cuts the wind on a Bow rooftop in February.",
+      "preview_image_url": "/images/gallery/03-chimney-sweep-rooftop.jpg",
+      "variants": [
+        { "id": "ic-hood-blk-s", "name": "Black / S", "color": "Black", "size": "S", "price": 6500 },
+        { "id": "ic-hood-blk-m", "name": "Black / M", "color": "Black", "size": "M", "price": 6500 },
+        { "id": "ic-hood-blk-l", "name": "Black / L", "color": "Black", "size": "L", "price": 6500 },
+        { "id": "ic-hood-blk-xl", "name": "Black / XL", "color": "Black", "size": "XL", "price": 6500 },
+        { "id": "ic-hood-blk-2xl", "name": "Black / 2XL", "color": "Black", "size": "2XL", "price": 7000 },
+        { "id": "ic-hood-cha-m", "name": "Charcoal / M", "color": "Charcoal", "size": "M", "price": 6500 },
+        { "id": "ic-hood-cha-l", "name": "Charcoal / L", "color": "Charcoal", "size": "L", "price": 6500 },
+        { "id": "ic-hood-cha-xl", "name": "Charcoal / XL", "color": "Charcoal", "size": "XL", "price": 6500 }
+      ]
+    },
+    {
+      "id": "ic-longsleeve-tee",
+      "slug": "long-sleeve-work-tee",
+      "name": "Long-Sleeve Work Tee",
+      "category": "Apparel",
+      "price": 3400,
+      "description": "Pre-shrunk cotton long-sleeve with reinforced cuffs. Honest weight, honest drape, no novelty graphics.",
+      "preview_image_url": "/images/gallery/05-lime-mortar-hand.jpg",
+      "variants": [
+        { "id": "ic-ls-cha-s", "name": "Charcoal / S", "color": "Charcoal", "size": "S", "price": 3400 },
+        { "id": "ic-ls-cha-m", "name": "Charcoal / M", "color": "Charcoal", "size": "M", "price": 3400 },
+        { "id": "ic-ls-cha-l", "name": "Charcoal / L", "color": "Charcoal", "size": "L", "price": 3400 },
+        { "id": "ic-ls-cha-xl", "name": "Charcoal / XL", "color": "Charcoal", "size": "XL", "price": 3400 },
+        { "id": "ic-ls-blk-m", "name": "Black / M", "color": "Black", "size": "M", "price": 3400 },
+        { "id": "ic-ls-blk-l", "name": "Black / L", "color": "Black", "size": "L", "price": 3400 },
+        { "id": "ic-ls-blk-xl", "name": "Black / XL", "color": "Black", "size": "XL", "price": 3400 }
+      ]
+    },
+    {
+      "id": "ic-tee-standard",
+      "slug": "standard-tee",
+      "name": "Standard Tee",
+      "category": "Apparel",
+      "price": 2400,
+      "description": "Mid-weight cotton tee with the wordmark on the chest. Good for a job site, fine for the diner after.",
+      "preview_image_url": "/images/gallery/13-historic-chimney-rebuild.jpg",
+      "variants": [
+        { "id": "ic-tee-blk-s", "name": "Black / S", "color": "Black", "size": "S", "price": 2400 },
+        { "id": "ic-tee-blk-m", "name": "Black / M", "color": "Black", "size": "M", "price": 2400 },
+        { "id": "ic-tee-blk-l", "name": "Black / L", "color": "Black", "size": "L", "price": 2400 },
+        { "id": "ic-tee-blk-xl", "name": "Black / XL", "color": "Black", "size": "XL", "price": 2400 },
+        { "id": "ic-tee-cre-m", "name": "Cream / M", "color": "Cream", "size": "M", "price": 2400 },
+        { "id": "ic-tee-cre-l", "name": "Cream / L", "color": "Cream", "size": "L", "price": 2400 },
+        { "id": "ic-tee-cre-xl", "name": "Cream / XL", "color": "Cream", "size": "XL", "price": 2400 }
+      ]
+    },
+    {
+      "id": "ic-travel-mug",
+      "slug": "insulated-travel-mug",
+      "name": "Insulated Travel Mug",
+      "category": "Drinkware",
+      "price": 3200,
+      "description": "Double-wall stainless travel mug with copper-tone accent ring. Holds coffee from the truck stop to the third-floor flue.",
+      "preview_image_url": "/images/gallery/06-polished-copper-cap.jpg",
+      "variants": [
+        { "id": "ic-mug-travel-blk", "name": "Matte Black", "color": "Black", "price": 3200 },
+        { "id": "ic-mug-travel-cop", "name": "Copper", "color": "Copper", "price": 3200 }
+      ]
+    },
+    {
+      "id": "ic-enamel-mug",
+      "slug": "enamel-campfire-mug",
+      "name": "Enamel Campfire Mug",
+      "category": "Drinkware",
+      "price": 1800,
+      "description": "Twelve-ounce enameled steel mug with a rolled rim. Looks at home next to a wood stove.",
+      "preview_image_url": "/images/gallery/14-wood-stove-insert.jpg",
+      "variants": [
+        { "id": "ic-enamel-cre", "name": "Cream", "color": "Cream", "price": 1800 },
+        { "id": "ic-enamel-blk", "name": "Black", "color": "Black", "price": 1800 }
+      ]
+    },
+    {
+      "id": "ic-hardhat-stickers",
+      "slug": "hardhat-sticker-pack",
+      "name": "Hardhat Sticker Pack",
+      "category": "Stickers",
+      "price": 900,
+      "description": "Set of six weatherproof vinyl stickers sized for a hardhat or toolbox. Holds up to rain, soot, and a power-wash.",
+      "preview_image_url": "/images/gallery/11-craftsman-ladder-approach.jpg",
+      "variants": [
+        { "id": "ic-stickers-pack", "name": "Six-Pack", "price": 900 }
+      ]
+    },
+    {
+      "id": "ic-bumper-sticker",
+      "slug": "work-truck-bumper-sticker",
+      "name": "Rugged Work-Truck Bumper Sticker",
+      "category": "Stickers",
+      "price": 600,
+      "description": "Heavy-duty 9-inch bumper sticker. Survives one New England winter and most of a second.",
+      "preview_image_url": "/images/gallery/07-aerial-cape-roofline.jpg",
+      "variants": [
+        { "id": "ic-bumper-single", "name": "Single", "price": 600 }
+      ]
+    },
+    {
+      "id": "ic-trucker-hat",
+      "slug": "bow-nh-trucker-hat",
+      "name": "Bow, NH Trucker Hat",
+      "category": "Hats",
+      "price": 3000,
+      "description": "Five-panel trucker with a foam front and mesh back. Bow, NH callout on the side panel.",
+      "preview_image_url": "/images/gallery/11-craftsman-ladder-approach.jpg",
+      "variants": [
+        { "id": "ic-trucker-blkcha", "name": "Black / Charcoal", "color": "Black", "price": 3000 },
+        { "id": "ic-trucker-tancre", "name": "Tan / Cream", "color": "Tan", "price": 3000 }
+      ]
+    },
+    {
+      "id": "ic-tumbler",
+      "slug": "insulated-tumbler",
+      "name": "Insulated Tumbler",
+      "category": "Drinkware",
+      "price": 3800,
+      "description": "Twenty-ounce double-wall tumbler with a slide-lock lid. Coffee at six, water at two.",
+      "preview_image_url": "/images/gallery/04-stainless-liner-install.jpg",
+      "variants": [
+        { "id": "ic-tum-stain", "name": "Stainless", "color": "Stainless", "price": 3800 },
+        { "id": "ic-tum-blk", "name": "Matte Black", "color": "Black", "price": 3800 }
+      ]
+    },
+    {
+      "id": "ic-canvas-tote",
+      "slug": "branded-canvas-tote",
+      "name": "Branded Canvas Tote",
+      "category": "Apparel",
+      "price": 2200,
+      "description": "Twelve-ounce natural canvas tote with reinforced handles. Carries firewood kindling, a clipboard, or a six-pack.",
+      "preview_image_url": "/images/gallery/10-beehive-bake-oven.jpg",
+      "variants": [
+        { "id": "ic-tote-nat", "name": "Natural", "color": "Natural", "price": 2200 },
+        { "id": "ic-tote-blk", "name": "Black", "color": "Black", "price": 2200 }
+      ]
+    },
+    {
+      "id": "ic-stove-guide",
+      "slug": "wood-stove-care-guide",
+      "name": "Wood-Stove Care Guide",
+      "category": "Tools",
+      "price": 999,
+      "description": "Forty-eight page printed booklet covering seasoning, loading, draft, and creosote risk. Plain language, no upsell.",
+      "preview_image_url": "/images/gallery/14-wood-stove-insert.jpg",
+      "variants": [
+        { "id": "ic-guide-print", "name": "Printed Booklet", "price": 999 }
+      ]
+    }
+  ]
+}

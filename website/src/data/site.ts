@@ -1335,6 +1335,7 @@ export const nav = {
     { label: "Historic Restoration", href: "/historic-restoration" },
     { label: "For Realtors", href: "/for-realtors" },
     { label: "Service Areas", href: "/service-areas" },
+    { label: "Shop", href: "/shop" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
   ],

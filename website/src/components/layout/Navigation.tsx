@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { nav, serviceAreas, siteConfig } from "@/data/site";
 import { telHref } from "@/lib/utils";
+import { useCart } from "@/lib/cart";
 
 const SERVICE_AREAS_LABEL = "Service Areas";
 const SERVICE_AREAS_HREF = "/service-areas";
@@ -18,6 +19,7 @@ export function Navigation() {
   const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const moreRef = useRef<HTMLDivElement>(null);
+  const { itemCount, openDrawer } = useCart();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -249,6 +251,37 @@ export function Navigation() {
               >
                 {siteConfig.phone}
               </a>
+              <button
+                type="button"
+                onClick={openDrawer}
+                aria-label={`Open cart, ${itemCount} item${itemCount === 1 ? "" : "s"}`}
+                className="relative inline-flex h-9 w-9 items-center justify-center rounded-md text-text-secondary transition-colors hover:bg-bg-elevated/60 hover:text-accent"
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.8"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                  <path d="M3 6h18" />
+                  <path d="M16 10a4 4 0 0 1-8 0" />
+                </svg>
+                {itemCount > 0 ? (
+                  <span
+                    aria-hidden="true"
+                    className="absolute -top-0.5 -right-0.5 inline-flex h-4 min-w-[1rem] items-center justify-center rounded-full px-1 font-mono text-[0.6rem] font-semibold text-bg-base"
+                    style={{ background: "var(--accent)" }}
+                  >
+                    {itemCount > 99 ? "99+" : itemCount}
+                  </span>
+                ) : null}
+              </button>
               <Link
                 href={nav.ctaPrimary.href}
                 className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 font-mono text-xs uppercase tracking-wider text-text-primary hover:bg-primary-muted transition-colors"
@@ -455,6 +488,40 @@ export function Navigation() {
                 >
                   {siteConfig.phone}
                 </a>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setOpen(false);
+                    openDrawer();
+                  }}
+                  className="relative inline-flex items-center justify-center gap-2 rounded-md border border-white/15 px-5 py-3 font-mono text-xs uppercase tracking-wider text-text-secondary hover:border-accent/60 hover:text-accent"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
+                    <path d="M3 6h18" />
+                    <path d="M16 10a4 4 0 0 1-8 0" />
+                  </svg>
+                  <span>Cart</span>
+                  {itemCount > 0 ? (
+                    <span
+                      aria-hidden="true"
+                      className="ml-1 inline-flex h-5 min-w-[1.25rem] items-center justify-center rounded-full px-1.5 font-mono text-[0.65rem] font-semibold text-bg-base"
+                      style={{ background: "var(--accent)" }}
+                    >
+                      {itemCount > 99 ? "99+" : itemCount}
+                    </span>
+                  ) : null}
+                </button>
                 <Link
                   href={nav.ctaPrimary.href}
                   onClick={() => setOpen(false)}

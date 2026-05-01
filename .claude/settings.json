@@ -95,7 +95,14 @@
       "Bash(grep -c \"\\\\.jpg$\")",
       "Bash(sed -i 's/bg-bg-base py-20 md:py-28/bg-transparent py-20 md:py-28/' src/components/sections/BlogPreview.tsx src/components/sections/FounderTeaser.tsx)",
       "Bash(sed -i 's/bg-bg-elevated py-20 md:py-28/bg-transparent py-20 md:py-28/' src/components/sections/FinalCTA.tsx src/components/sections/QuizCTA.tsx src/components/sections/ServicesPreview.tsx)",
-      "Bash(sed -i 's/bg-bg-elevated border-t border-white\\\\/5/bg-transparent border-t border-white\\\\/5/' src/components/layout/Footer.tsx)"
+      "Bash(sed -i 's/bg-bg-elevated border-t border-white\\\\/5/bg-transparent border-t border-white\\\\/5/' src/components/layout/Footer.tsx)",
+      "Read(//c/Projects/andrea-abella-marie/src/lib/**)",
+      "Read(//c/Projects/andrea-abella-marie/src/components/**)",
+      "Read(//c/Projects/andrea-abella-marie/src/app/api/printful/products/**)",
+      "Read(//c/Projects/andrea-abella-marie/src/app/api/printful/variants/[id]/**)",
+      "Read(//c/Projects/andrea-abella-marie/src/app/api/stripe/checkout/**)",
+      "Read(//c/Projects/andrea-abella-marie/src/app/api/stripe/webhook/**)",
+      "Read(//c/Projects/andrea-abella-marie/src/app/shop/**)"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git",

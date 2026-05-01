@@ -4,6 +4,8 @@ import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { LocalBusinessSchema, WebsiteSchema } from "@/components/seo";
 import { GlobalEmberLayer } from "@/components/animations/GlobalEmberLayer";
+import { CartProvider } from "@/lib/cart";
+import { CartDrawer } from "@/components/shop/CartDrawer";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -72,9 +74,12 @@ export default function RootLayout({
         <LocalBusinessSchema />
         <WebsiteSchema />
         <GlobalEmberLayer />
-        <Navigation />
-        <main className="relative z-10 flex-1">{children}</main>
-        <Footer />
+        <CartProvider>
+          <Navigation />
+          <main className="relative z-10 flex-1">{children}</main>
+          <Footer />
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );
