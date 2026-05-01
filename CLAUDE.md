@@ -7,13 +7,20 @@
 #   LOCATION           = Bow, NH
 #   LAUNCH_TARGET      = TBD — high urgency (zero current online presence)
 #   PRIMARY_AUDIENCE   = NH homeowners with wood-burning fireplaces, wood stoves, or aging chimneys; secondary: real estate agents needing pre-sale chimney inspections
-#   CORE_OFFER         = chimney cleaning, full masonry, rain caps, stainless steel liners, restoration, roofing, insurance & real estate inspections
+#   CORE_OFFER         = chimney cleaning, full masonry, rain caps, stainless steel liners, restoration, roofing, insurance & real estate inspections; siding installation/replacement under sister brand
 #   KEY_GOAL           = establish first-ever web presence, generate inbound residential leads, support referral credibility
 #   BOOKING_ENGINE     = TBD — confirm before Phase 4 (Calendly assumed for demo)
 #   SCHEMA_TYPE        = LocalBusiness (HomeAndConstructionBusiness)
 #   OWNER              = Kevin Fredrickson
 #   PHONE              = (603) 660-4644
 #   EMAIL              = IntegrityChimney1@gmail.com
+#
+# SISTER BRAND (added 2026-05-01 from prospect's own Claude mockup, treated as confirmed):
+#   SISTER_BRAND       = Integrity Exteriors NH
+#   SISTER_FOCUS       = siding installation/replacement (vinyl, fiber cement/James Hardie, wood, engineered) + roofing installation/replacement
+#   EXTERIORS_PHONE    = (603) 568-9292
+#   EXTERIORS_EMAIL    = integrityexteriors603@gmail.com
+#   POSITIONING        = "One Owner. Two Companies. One Standard." — Kevin owns both LLCs, dual-brand surfaced inline on single domain (integritychimney.com)
 
 ## Plan Mode Rule
 Before writing ANY code — before touching a single file — enter Plan Mode.

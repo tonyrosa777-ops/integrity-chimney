@@ -27,6 +27,31 @@
 
 ---
 
+## Section 1B — Sister Brand: Integrity Exteriors NH
+
+**Source:** Kevin Fredrickson's own Claude-built mockup (`integrity-combined (3).html`), shared 2026-05-01.
+**Status:** Treated as confirmed intelligence — Kevin built the mockup and brought it to us. Validate operational details (whether the two phones ring the same line, LLC registration status of the second entity) during demo conversation.
+
+| Field | Value |
+|---|---|
+| Sister Brand Name | Integrity Exteriors NH |
+| Owner | Kevin Fredrickson (same owner as Integrity Chimney Services LLC) |
+| Sister Phone | (603) 568-9292 *(prospect-supplied — paired to exteriors brand in mockup)* |
+| Sister Email | integrityexteriors603@gmail.com *(prospect-supplied)* |
+| Sister Focus | Siding installation & replacement (vinyl, fiber cement / James Hardie, wood, engineered wood); roofing installation & replacement (architectural shingles, 3-tab, ice & water shield, ridge vent, flashing repair, full tear-off) |
+| Brand Architecture | Two LLCs, one owner — Kevin's mockup positions them as peer brands under "One Owner. Two Companies. One Standard." Single domain (integritychimney.com), dual brand surfaced inline. No separate sister-brand domain required. |
+| Service Footprint (per mockup) | NH + MA + ME + VT — Kevin's mockup explicitly tiers: Primary (Southern NH + North Shore MA), Extended (Greater NH + Southern ME), Premium Projects (VT — Woodstock, Stowe, Manchester VT, Burlington). **Demo build keeps current 6 NH towns as Primary tier; tiered structure scaffolded for future growth — confirm reach with Kevin during demo.** |
+| Tagline (Kevin's words) | "One Owner. Two Companies. One Standard." |
+
+**Verbatim copy from Kevin's mockup worth preserving:**
+- "Specialists in restoring and rebuilding chimneys for historic and older homes. Proper lime-based mortar, structural rebuilds, and craftsmanship that lasts."
+- "Not every mason understands old homes. We've built our entire practice around proper technique, using materials that work with your home's age and character, not against it." *(em dash converted to comma per voice rule)*
+- "Proper lime-based mortar matching, never Portland cement, which damages historic brick. We restore joints the correct way, every time." *(em dash converted to comma)*
+- "Premium siding installation and roofing replacement for New Hampshire homeowners. Quality materials, clean installs, lasting protection."
+- Service-area footer note: "We travel for the right project. Contact us to discuss your location."
+
+---
+
 ## Section 2 — Core Offering
 
 | Field | Value |

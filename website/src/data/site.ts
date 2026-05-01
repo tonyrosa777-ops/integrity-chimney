@@ -30,6 +30,18 @@ export const siteConfig = {
     instagram: "",
     facebook: "",
   },
+  // Sister brand owned by Kevin Fredrickson, surfaced inline on the same domain.
+  // Source: prospect's own Claude mockup (integrity-combined HTML), 2026-05-01.
+  secondaryBrand: {
+    name: "Integrity Exteriors NH",
+    legalName: "Integrity Exteriors NH",
+    shortName: "Integrity Exteriors",
+    focus: "Siding & Roofing",
+    phone: "(603) 568-9292",
+    phoneTel: "+16035689292",
+    email: "integrityexteriors603@gmail.com",
+    tagline: "Siding and roofing done right. Quality materials, clean installs, lasting protection.",
+  },
 } as const;
 
 /* =============================================================
@@ -94,7 +106,7 @@ export const painPoints: Array<{ emoji: string; title: string; body: string }> =
    ============================================================= */
 export type Service = {
   slug: string;
-  pillar: "chimney" | "masonry" | "roofing";
+  pillar: "chimney" | "masonry" | "roofing" | "exteriors";
   emoji: string;
   name: string;
   tagline: string;
@@ -347,9 +359,10 @@ export const services: Service[] = [
     name: "Historic Fireplace & Masonry Restoration",
     tagline: "Lime mortar repointing, Rumford fireplace restoration, beehive bake oven work.",
     description:
-      "Pre-1900 NH center chimneys, Federal-era fireplaces, Rumford rebuilds, and beehive bake oven restoration. Lime mortar over Portland on every pre-1900 joint. Period-appropriate brick where the originals are unsalvageable. Photos for your archive. We work the houses Bow has been heating since the 1700s.",
+      "Not every mason understands old homes. We've built our entire practice around proper technique, using materials that work with your home's age and character, not against it. Pre-1900 NH center chimneys, Federal-era fireplaces, Rumford rebuilds, and beehive bake oven restoration. Lime mortar over Portland on every pre-1900 joint. Period-appropriate brick where the originals are unsalvageable. Photos for your archive. We work the houses Bow has been heating since the 1700s.",
     startingPrice: "Project pricing. Free site visit and assessment.",
     whatYouGet: [
+      "Proper lime-based mortar matching, never Portland cement, which damages historic brick",
       "Type O lime mortar matched to original joint composition",
       "Period-appropriate handmade brick where replacements are needed",
       "Rumford geometry preserved or restored to original specification",
@@ -377,20 +390,20 @@ export const services: Service[] = [
   },
   {
     slug: "roofing",
-    pillar: "roofing",
+    pillar: "exteriors",
     emoji: "🏠",
-    name: "Roofing Repair & Replacement",
-    tagline: "Asphalt shingle replacement, repair, and chimney flashing as one job.",
+    name: "Roofing Installation & Replacement",
+    tagline: "Architectural and 3-tab shingle systems built for New England weather.",
     description:
-      "Architectural shingle roof replacements, repair work, and chimney flashing. Done right means stripping to the deck where needed, ice and water shield in the valleys and around the chimney, proper drip edge, and step flashing where the chimney meets the roof. Chimney and roof on the same visit so the flashing actually seals.",
+      "Complete roof replacements and repair work for residential homes. Architectural shingles, 3-tab shingles, full tear-off and replacement, ice and water shield, ridge vent, drip edge, and proper step flashing where the chimney meets the roof. We install for the New England freeze-thaw climate, and we coordinate the chimney flashing on the same visit so the seal actually holds.",
     startingPrice: "Free roof inspection. Replacement quotes after on-site assessment.",
     whatYouGet: [
-      "Free roof inspection with photos",
-      "Architectural shingle replacement with manufacturer warranty",
-      "Ice and water shield in valleys and at the chimney",
-      "Proper step flashing where the chimney meets the roof",
-      "Tear-off where the deck is compromised",
-      "Drip edge, ridge vent, and gutter coordination",
+      "Architectural and 3-tab shingle installation with manufacturer warranty",
+      "Full tear-off and replacement, deck repair where compromised",
+      "Ice and water shield in valleys and around the chimney",
+      "Ridge vent installation and proper drip edge",
+      "Step flashing rebuilt where the chimney meets the roof",
+      "Flashing repair and replacement on existing roofs",
     ],
     whoItsFor: [
       "Homeowners with an aging asphalt roof past 18 to 20 years",
@@ -408,6 +421,42 @@ export const services: Service[] = [
       { q: "Why pair roofing with chimney work?", a: "The chimney flashing is where most leaks start. If you replace the roof without rebuilding the flashing, the leak comes back in two years. Doing both at once means one visit, one warranty, and the seal lasts." },
       { q: "How long does a NH asphalt roof last?", a: "Architectural shingles in NH freeze-thaw, properly installed, last 25 to 30 years. Three-tab shingles run 18 to 22 years. Ice damage and improper flashing shorten both." },
       { q: "Do you handle insurance claims?", a: "Yes. We document the damage with photos, write the scope to match the loss, and work directly with adjusters where needed." },
+    ],
+  },
+  {
+    slug: "siding",
+    pillar: "exteriors",
+    emoji: "🏘️",
+    name: "Siding Installation & Replacement",
+    tagline: "Vinyl, fiber cement, wood, and engineered wood siding installed for New England weather.",
+    description:
+      "Premium siding installation and replacement under our sister brand, Integrity Exteriors NH. Vinyl, fiber cement (James Hardie), wood, and engineered wood. Full removal and disposal of existing siding, moisture barrier installation, and clean professional install. New siding improves curb appeal and adds lasting protection against moisture, wind, and the cold New England loves to throw at your house.",
+    startingPrice: "Free written estimate. Project pricing after on-site measure.",
+    whatYouGet: [
+      "Vinyl, fiber cement (James Hardie), wood, or engineered wood siding",
+      "Full removal and disposal of existing siding",
+      "Moisture barrier installation behind the new siding",
+      "Clean job site, before-and-after documentation",
+      "Manufacturer warranty plus our workmanship guarantee",
+    ],
+    whoItsFor: [
+      "Homeowners with aging vinyl that's faded, cracked, or detaching",
+      "Owners upgrading to fiber cement (James Hardie) for fire and rot resistance",
+      "Owners restoring wood siding on historic or older homes",
+      "Anyone whose siding has visible water damage or failed flashing",
+    ],
+    process: [
+      { step: 1, title: "Free on-site measure", body: "We come out, measure the elevations, photograph the existing siding and any underlying damage, and walk the project with you." },
+      { step: 2, title: "Written estimate", body: "Materials, labor, timeline, price. Clear line items. No deposit over $1,000 until day-of-start." },
+      { step: 3, title: "Tear-off and prep", body: "Old siding stripped and disposed of. Sheathing inspected. Moisture barrier installed. Any rot remediated before the new siding goes on." },
+      { step: 4, title: "Install", body: "Vinyl, fiber cement, wood, or engineered wood per the scope. Trim, corners, and J-channel handled clean. Daily site cleanup." },
+      { step: 5, title: "Walk-through and warranty", body: "Final walk-through with you. Photo documentation handed over. Manufacturer warranty plus our workmanship guarantee in writing." },
+    ],
+    faq: [
+      { q: "Should I go with vinyl or fiber cement?", a: "Vinyl is the budget choice and lasts 20 to 30 years in NH. Fiber cement (James Hardie is the dominant brand) lasts 50+ years, resists fire and rot, and looks closer to wood. Cost runs roughly 2x vinyl. We install both, and we'll tell you straight what your house and budget call for." },
+      { q: "Do you do partial siding repairs?", a: "Yes. Storm damage, rot remediation, single-elevation replacements. We're happy to do a section. Full re-sides are also routine." },
+      { q: "What's the timeline for a full re-side?", a: "Most NH single-family homes run 1 to 2 weeks depending on size, weather, and material. We give you a target window in the written quote and update you if the schedule shifts." },
+      { q: "Why is this under Integrity Exteriors NH instead of Integrity Chimney?", a: "Same owner, Kevin Fredrickson. Two specialized companies. Integrity Chimney handles chimneys and historic masonry. Integrity Exteriors NH handles siding and roofing. One standard either way." },
     ],
   },
   {
@@ -573,7 +622,9 @@ export const founder = {
   name: "Kevin Fredrickson",
   title: "Owner and Lead Craftsman",
   photo: "",
-  bio: "Kevin Fredrickson built his career on rooftops between Bow and the Lakes Region, working chimneys, masonry, and roofing on everything from new construction Capes in Hopkinton to 1798 center-chimney colonials in Henniker. He started Integrity because the trade needed someone who would answer the phone, show up the day he said, and tell homeowners the truth about what their chimney actually needed. Most of his work comes from realtor referrals and neighbors who watched him fix a stack down the road. He runs the company himself: he answers the phone, he writes the quote, he climbs the roof. When you hire Integrity, you get Kevin and the small crew he trusts. Not a call center, not a subcontractor, not a sales rep with a clipboard.",
+  // [DEMO COPY — pending client review] Two-companies framing sourced from Kevin's
+  // own Claude-built mockup (2026-05-01). Confirm narrative voice with Kevin during demo.
+  bio: "Kevin Fredrickson built his career on rooftops between Bow and the Lakes Region, working chimneys, masonry, and roofing on everything from new construction Capes in Hopkinton to 1798 center-chimney colonials in Henniker. He started Integrity Chimney because the trade needed someone who would answer the phone, show up the day he said, and tell homeowners the truth about what their chimney actually needed. As the work grew, so did the scope. Today Kevin owns two specialized companies: Integrity Chimney for chimneys and historic masonry, and Integrity Exteriors NH for siding and roofing. One owner, two companies, one standard. Most of his work comes from realtor referrals and neighbors who watched him fix a stack down the road. He runs both companies himself: he answers the phone, he writes the quote, he climbs the roof. When you hire either company, you get Kevin and the small crew he trusts. Not a call center, not a subcontractor, not a sales rep with a clipboard.",
   credentials: [
     "Owner-operated in central NH",
     "Fully insured",
@@ -584,6 +635,55 @@ export const founder = {
   ],
   yearsExperience: 15,
 };
+
+/* =============================================================
+   Sister Brand callout — "One Owner. Two Companies. One Standard."
+   Consumed by FounderTeaser (homepage) and the About page.
+   Source: prospect's own Claude mockup, 2026-05-01.
+   ============================================================= */
+export const sisterBrand = {
+  eyebrow: "One Owner · Two Companies",
+  headline: "One Owner. Two Companies. One Standard.",
+  body: "Kevin runs two specialized companies under his own name. Same craftsman, same crew he trusts, same workmanship guarantee. The work just splits along the lines that make sense for the trades.",
+  pillars: [
+    {
+      brandName: "Integrity Chimney",
+      focus: "Chimney & Historic Masonry",
+      description:
+        "Chimney sweeps, Level 2 inspections, stainless liners, rain caps, full masonry, and historic restoration. The work that built the company.",
+      bullets: [
+        "Chimney cleaning & Level 2 inspections",
+        "Stainless steel liners & rain caps",
+        "Full masonry & repointing",
+        "Historic lime-mortar restoration",
+      ],
+      phone: "(603) 660-4644",
+      phoneTel: "+16036604644",
+      email: "IntegrityChimney1@gmail.com",
+      ctaHref: "/services",
+      ctaLabel: "Chimney services",
+      accent: "primary",
+    },
+    {
+      brandName: "Integrity Exteriors NH",
+      focus: "Siding & Roofing",
+      description:
+        "Premium siding installation and roofing replacement for New Hampshire homeowners. Quality materials, clean installs, lasting protection.",
+      bullets: [
+        "Vinyl, fiber cement, wood & engineered siding",
+        "Architectural & 3-tab shingle roof systems",
+        "Ice & water shield, ridge vent, flashing",
+        "Free written estimates, clean job sites",
+      ],
+      phone: "(603) 568-9292",
+      phoneTel: "+16035689292",
+      email: "integrityexteriors603@gmail.com",
+      ctaHref: "/services/siding",
+      ctaLabel: "Exterior services",
+      accent: "secondary",
+    },
+  ],
+} as const;
 
 /* =============================================================
    Testimonials: 36 total, paginated 9 per page (Error #31)
@@ -1196,11 +1296,37 @@ export type ServiceArea = {
   housingNote?: string;
   description: string;
   faqs: Array<{ q: string; a: string }>;
+  tier?: "primary" | "extended" | "premium";
 };
+
+/**
+ * Service area tiers (added 2026-05-01 from prospect's mockup pattern).
+ * Primary cities get full landing pages. Extended/Premium are scaffolded for
+ * growth — surfaced on /service-areas with a "we travel for the right project"
+ * note instead of dedicated pages until coverage is validated with Kevin.
+ */
+export const serviceAreaTiers = {
+  primary: {
+    label: "Primary Area",
+    headline: "Six core towns, on the route every week",
+    note: "These are the towns we cover weekly. If you're calling from one of these addresses, you're often the closest job on the schedule.",
+  },
+  extended: {
+    label: "Extended Area",
+    headline: "Greater NH and beyond, project by project",
+    note: "We travel for the right project. Manchester, Nashua, Dover, the Lakes Region, and the Seacoast — contact us with the address and the scope, and we'll tell you straight whether we can fit it in.",
+  },
+  premium: {
+    label: "Premium Projects",
+    headline: "Heritage and historic work, anywhere it's the right fit",
+    note: "Pre-1900 colonial restoration, Federal-era fireplace work, and large heritage masonry projects pull us further than our regular route. If your project is the right fit, distance isn't the question. The work is.",
+  },
+} as const;
 export const serviceAreas: ServiceArea[] = [
   {
     city: "Bow",
     state: "NH",
+    tier: "primary",
     slug: "bow",
     population: 7821,
     distance: "Home base",
@@ -1216,6 +1342,7 @@ export const serviceAreas: ServiceArea[] = [
   {
     city: "Concord",
     state: "NH",
+    tier: "primary",
     slug: "concord",
     population: 43976,
     distance: "10 miles north",
@@ -1231,6 +1358,7 @@ export const serviceAreas: ServiceArea[] = [
   {
     city: "Hopkinton",
     state: "NH",
+    tier: "primary",
     slug: "hopkinton",
     population: 5727,
     distance: "12 miles west",
@@ -1246,6 +1374,7 @@ export const serviceAreas: ServiceArea[] = [
   {
     city: "Henniker",
     state: "NH",
+    tier: "primary",
     slug: "henniker",
     population: 4975,
     distance: "20 miles west",
@@ -1261,6 +1390,7 @@ export const serviceAreas: ServiceArea[] = [
   {
     city: "Loudon",
     state: "NH",
+    tier: "primary",
     slug: "loudon",
     population: 5675,
     distance: "12 miles northeast",
@@ -1276,6 +1406,7 @@ export const serviceAreas: ServiceArea[] = [
   {
     city: "Pembroke",
     state: "NH",
+    tier: "primary",
     slug: "pembroke",
     population: 7115,
     distance: "8 miles south",
@@ -1352,9 +1483,38 @@ export const nav = {
    Footer
    ============================================================= */
 export const footer = {
-  tagline: "Chimney, masonry, and roofing across central New Hampshire. We answer the phone, show up when we said, and tell you what your chimney actually needs.",
+  tagline: "Chimney, masonry, siding, and roofing across central New Hampshire. Two specialized companies, one owner. We answer the phone, show up when we said, and tell you what your home actually needs.",
+  brands: [
+    {
+      name: "Integrity Chimney",
+      focus: "Chimney & Masonry",
+      phone: "(603) 660-4644",
+      phoneTel: "+16036604644",
+      email: "IntegrityChimney1@gmail.com",
+      services: [
+        { label: "Chimney Cleaning", href: "/services/chimney-cleaning" },
+        { label: "Level 2 Inspection", href: "/services/level-2-inspection" },
+        { label: "Stainless Liners", href: "/services/stainless-steel-liner" },
+        { label: "Historic Restoration", href: "/services/historic-restoration" },
+        { label: "Crown & Cap Repair", href: "/services/crown-repair" },
+      ],
+    },
+    {
+      name: "Integrity Exteriors NH",
+      focus: "Siding & Roofing",
+      phone: "(603) 568-9292",
+      phoneTel: "+16035689292",
+      email: "integrityexteriors603@gmail.com",
+      services: [
+        { label: "Siding Installation", href: "/services/siding" },
+        { label: "Siding Replacement", href: "/services/siding" },
+        { label: "Roofing Installation", href: "/services/roofing" },
+        { label: "Roofing Replacement", href: "/services/roofing" },
+      ],
+    },
+  ],
   legal: {
-    licenseNotice: "Integrity Chimney Services LLC, Bow, NH. Fully insured. Free estimates on repairs over $500.",
+    licenseNotice: "Integrity Chimney Services LLC and Integrity Exteriors NH, Bow, NH. Both fully insured. Free estimates.",
     insuredNotice: "Fully insured. Free estimates.",
   },
   schemaAddress: {
