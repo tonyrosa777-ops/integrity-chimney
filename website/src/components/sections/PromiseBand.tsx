@@ -14,7 +14,7 @@ export function PromiseBand() {
   return (
     <section
       aria-label="Service-level promise"
-      className="relative w-full bg-aged-mortar"
+      className="relative w-full bg-aged-mortar pt-20 md:pt-24"
     >
       <div className="mx-auto flex w-full max-w-7xl flex-col items-center justify-center gap-2 px-6 py-3 text-center md:flex-row md:gap-4 md:py-3.5">
         <FadeIn delay={0} duration={0.5}>

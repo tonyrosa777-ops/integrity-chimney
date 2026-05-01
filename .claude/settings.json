@@ -61,7 +61,16 @@
       "Bash(node scripts/generate-gallery.mjs)",
       "Bash(awk '/^export const testimonials/,/^]\\\\s*;\\\\s*$/' \"c:/Projects/Integrity-Chimney/website/src/data/site.ts\")",
       "Bash(grep -n \"DEMO COPY\\\\|\\\\\\\\[MISSING:\" \"c:/Projects/Integrity-Chimney/website/src/data/site.ts\" \"c:/Projects/Integrity-Chimney/website/src/data/gallery.ts\")",
-      "Read(//c/c/Projects/Integrity-Chimney/website/src/app/**)"
+      "Read(//c/c/Projects/Integrity-Chimney/website/src/app/**)",
+      "Read(//c/Users/Anthony/AppData/Local/Temp/claude/c--Projects-Integrity-Chimney/a5ec843a-23bc-47b7-8a2b-ffb24df63237/tasks/**)",
+      "mcp__playwright__browser_resize",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_console_messages",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_snapshot",
+      "mcp__playwright__browser_click",
+      "Bash(taskkill //PID 23928 //F)"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git"

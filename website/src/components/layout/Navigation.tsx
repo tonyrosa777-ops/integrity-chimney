@@ -49,10 +49,10 @@ export function Navigation() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+        className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 bg-bg-base/95 backdrop-blur-md border-b ${
           scrolled
-            ? "bg-bg-base/85 backdrop-blur-md border-b border-white/5 shadow-lg"
-            : "bg-transparent"
+            ? "border-white/10 shadow-lg"
+            : "border-white/5"
         }`}
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
