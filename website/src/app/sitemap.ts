@@ -14,22 +14,11 @@
 
 import type { MetadataRoute } from "next";
 import { siteConfig, services, serviceAreas } from "@/data/site";
-import { sanityFetch, isSanityConfigured } from "@/sanity/lib/client";
-import { allPostSlugsQuery } from "@/sanity/lib/queries";
+import { blogPosts } from "@/data/blog";
 
 const BASE_URL: string = (
   process.env.NEXT_PUBLIC_SITE_URL ?? siteConfig.url
 ).replace(/\/$/, "");
-
-type SanitySlug = { slug: string };
-
-async function fetchBlogSlugs(): Promise<string[]> {
-  if (!isSanityConfigured) return [];
-  const slugs = (await sanityFetch<SanitySlug[]>(allPostSlugsQuery, {}, [])) ?? [];
-  return slugs
-    .filter((s) => typeof s.slug === "string" && s.slug.length > 0)
-    .map((s) => s.slug);
-}
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
@@ -67,10 +56,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  const blogSlugs = await fetchBlogSlugs();
-  const blogEntries: MetadataRoute.Sitemap = blogSlugs.map((slug) => ({
-    url: `${BASE_URL}/blog/${slug}`,
-    lastModified: now,
+  const blogEntries: MetadataRoute.Sitemap = blogPosts.map((post) => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.publishedAt),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }));

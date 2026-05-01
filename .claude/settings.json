@@ -87,7 +87,12 @@
       "Bash(git -C \"/c/Projects/Optimus Assets\" status -sb)",
       "Bash(git -C \"/c/Projects/Optimus Assets\" log origin/main..HEAD --oneline)",
       "Bash(git -C \"/c/Projects/Optimus Assets\" push origin main)",
-      "Bash(grep -nE \"Fifteen years|on Bow|hero\\\\.|fallback|\\\\\\\\|\\\\\\\\|\" /c/Projects/Integrity-Chimney/website/src/components/sections/Hero.tsx)"
+      "Bash(grep -nE \"Fifteen years|on Bow|hero\\\\.|fallback|\\\\\\\\|\\\\\\\\|\" /c/Projects/Integrity-Chimney/website/src/components/sections/Hero.tsx)",
+      "WebSearch",
+      "Bash(node scripts/generate-blog-images.mjs)",
+      "Bash(node -e \"console.log\\(require\\('typescript'\\).version\\)\")",
+      "Bash(node validate-blog.mjs)",
+      "Bash(grep -c \"\\\\.jpg$\")"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git",

@@ -1,70 +1,20 @@
 /**
- * BlogPreview.tsx - Placeholder blog cards (3 latest). Dark tone.
- * Article images will be fal.ai-generated in Stage 1G; for now, gradient
- * placeholders keyed by topic.
+ * BlogPreview.tsx - Homepage section showing the 3 latest blog posts.
+ * Reads from src/data/blog.ts. Dark tone.
  */
 
 "use client";
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FadeUp,
   StaggerContainer,
   staggerItem,
 } from "@/components/animations";
 import { Button } from "@/components/ui/Button";
-
-type BlogPlaceholder = {
-  slug: string;
-  category: string;
-  title: string;
-  excerpt: string;
-  readMinutes: number;
-  date: string;
-  gradient: string;
-  emoji: string;
-};
-
-const PLACEHOLDERS: BlogPlaceholder[] = [
-  {
-    slug: "level-2-inspection-real-estate-nh",
-    category: "Real Estate",
-    title: "What a Level 2 inspection actually looks like for a NH closing.",
-    excerpt:
-      "Inside the 24-hour PDF: what realtors flag, what lawyers want to see, and how to keep a chimney issue from blowing up the close.",
-    readMinutes: 7,
-    date: "2026-04-14",
-    gradient:
-      "linear-gradient(135deg, rgba(127,42,31,0.85) 0%, rgba(20,20,20,0.95) 60%, rgba(184,115,51,0.45) 100%)",
-    emoji: "📋",
-  },
-  {
-    slug: "lime-mortar-vs-portland-pre-1900-chimneys",
-    category: "Historic Restoration",
-    title:
-      "Why Portland cement spalls pre-1900 brick (and what to use instead).",
-    excerpt:
-      "The math on softer brick, the Type O lime mortar standard, and why a $1,500 repoint can save a $30,000 rebuild on a Federal-era chimney.",
-    readMinutes: 9,
-    date: "2026-03-22",
-    gradient:
-      "linear-gradient(135deg, rgba(47,62,70,0.9) 0%, rgba(20,20,20,0.95) 55%, rgba(127,42,31,0.55) 100%)",
-    emoji: "🏛️",
-  },
-  {
-    slug: "creosote-the-kids-are-upstairs",
-    category: "Safety",
-    title: "You smell creosote and the kids are upstairs. What to do tonight.",
-    excerpt:
-      "A field guide for the call you don&rsquo;t want to make. When to stop using the stove, when it can wait, and what a real same-day sweep covers.",
-    readMinutes: 5,
-    date: "2026-02-09",
-    gradient:
-      "linear-gradient(135deg, rgba(184,115,51,0.7) 0%, rgba(20,20,20,0.95) 55%, rgba(127,42,31,0.7) 100%)",
-    emoji: "🔥",
-  },
-];
+import { blogPosts } from "@/data/blog";
 
 function formatDate(iso: string): string {
   const d = new Date(iso);
@@ -76,6 +26,10 @@ function formatDate(iso: string): string {
 }
 
 export function BlogPreview() {
+  const latest = [...blogPosts]
+    .sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1))
+    .slice(0, 3);
+
   return (
     <section
       aria-labelledby="blog-preview-heading"
@@ -107,30 +61,22 @@ export function BlogPreview() {
           staggerDelay={0.12}
           className="mt-12 grid grid-cols-1 gap-6 md:mt-16 md:grid-cols-3 md:gap-7"
         >
-          {PLACEHOLDERS.map((post) => (
+          {latest.map((post) => (
             <motion.article
               key={post.slug}
               variants={staggerItem}
               className="group flex flex-col overflow-hidden rounded-lg border border-text-primary/10 bg-bg-card transition-all duration-200 hover:-translate-y-1 hover:border-accent/40"
             >
               <Link href={`/blog/${post.slug}`} className="flex flex-1 flex-col">
-                {/* Image placeholder */}
-                <div
-                  aria-hidden="true"
-                  className="relative h-44 w-full overflow-hidden"
-                  style={{ background: post.gradient }}
-                >
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-5xl opacity-80">{post.emoji}</span>
-                  </div>
-                  <div
-                    className="absolute inset-0 opacity-30"
-                    style={{
-                      backgroundImage:
-                        "radial-gradient(circle, rgba(245,245,245,0.3) 1px, transparent 1px)",
-                      backgroundSize: "10px 10px",
-                    }}
+                <div className="relative h-44 w-full overflow-hidden">
+                  <Image
+                    src={post.cardImage}
+                    alt={post.title}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-bg-base/40 via-transparent to-transparent" />
                 </div>
 
                 <div className="flex flex-1 flex-col p-6">
@@ -140,7 +86,7 @@ export function BlogPreview() {
                       ·
                     </span>
                     <span className="text-text-muted">
-                      {post.readMinutes} min read
+                      {post.readingMinutes} min read
                     </span>
                   </div>
 
@@ -156,7 +102,7 @@ export function BlogPreview() {
                   </p>
 
                   <p className="mt-5 font-mono text-[0.7rem] uppercase tracking-[0.1em] text-text-muted">
-                    {formatDate(post.date)}
+                    {formatDate(post.publishedAt)}
                   </p>
                 </div>
               </Link>
