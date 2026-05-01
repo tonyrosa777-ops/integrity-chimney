@@ -102,7 +102,8 @@
       "Read(//c/Projects/andrea-abella-marie/src/app/api/printful/variants/[id]/**)",
       "Read(//c/Projects/andrea-abella-marie/src/app/api/stripe/checkout/**)",
       "Read(//c/Projects/andrea-abella-marie/src/app/api/stripe/webhook/**)",
-      "Read(//c/Projects/andrea-abella-marie/src/app/shop/**)"
+      "Read(//c/Projects/andrea-abella-marie/src/app/shop/**)",
+      "mcp__playwright__browser_evaluate"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git",

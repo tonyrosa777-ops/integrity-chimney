@@ -16,7 +16,7 @@ export function GlobalEmberLayer() {
     <div
       aria-hidden="true"
       className="pointer-events-none fixed inset-0 z-0"
-      style={{ opacity: 0.85 }}
+      style={{ opacity: 1 }}
     >
       <EmberDriftCanvas className="absolute inset-0 h-full w-full" />
     </div>

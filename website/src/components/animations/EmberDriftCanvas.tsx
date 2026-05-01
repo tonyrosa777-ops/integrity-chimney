@@ -42,9 +42,9 @@ const BRICK: [number, number, number] = [127, 42, 31];
 
 /** Particle count by viewport (pattern #51 mobile motion cap). */
 function particleCountFor(width: number): number {
-  if (width < 768) return 12;        // mobile: 10-15 (chosen mid-range)
-  if (width < 1280) return 25;       // tablet: 20-30
-  return 50;                         // desktop: 40-60
+  if (width < 768) return 25;        // mobile: bumped for "fiery ash" prominence
+  if (width < 1280) return 55;       // tablet
+  return 110;                        // desktop: dense atmosphere across the viewport
 }
 
 /** Smooth ease curve for alpha: ease-in 0-15%, hold 15-75%, ease-out 75-100%. */
@@ -88,8 +88,8 @@ function makeEmber(width: number, height: number, atSpawn = false): Ember {
   return {
     baseX: spawnX(width),
     y,
-    r: rand(1, 3),
-    vy: rand(6, 12),
+    r: rand(1.5, 4),
+    vy: rand(6, 14),
     amp: rand(8, 15),
     period: rand(4, 7),
     phase: Math.random() * Math.PI * 2,
