@@ -35,7 +35,7 @@ export default async function ShopSuccessPage({
   const sessionId = params?.session_id;
 
   return (
-    <section className="relative min-h-[80vh] overflow-hidden bg-bg-base px-6 pt-32 pb-20 md:pt-40 md:pb-28">
+    <section className="relative min-h-[80vh] overflow-hidden px-6 pt-32 pb-20 md:pt-40 md:pb-28">
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0"

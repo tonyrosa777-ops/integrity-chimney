@@ -48,7 +48,7 @@ export function GalleryClient() {
   }, [filter, openIndex, visible.length]);
 
   return (
-    <section className="bg-bg-base">
+    <section>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-32 md:pt-40 pb-20 md:pb-28">
         <FadeUp>
           <p className="text-eyebrow">Real work · Central New Hampshire</p>

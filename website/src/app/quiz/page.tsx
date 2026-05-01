@@ -35,7 +35,7 @@ export default function QuizPage() {
       <section
         aria-labelledby="quiz-hero-heading"
         className="relative w-full overflow-hidden"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -71,7 +71,7 @@ export default function QuizPage() {
       {/* Quiz body */}
       <section
         className="w-full pb-24 md:pb-32"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto w-full max-w-3xl px-6 md:px-8">
           <Quiz />

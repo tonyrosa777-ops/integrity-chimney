@@ -113,7 +113,7 @@ export default function ForRealtorsPage() {
       {/* ============== Hero (DARK) ============== */}
       <section
         className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -225,7 +225,7 @@ export default function ForRealtorsPage() {
       {/* ============== Intake Form (DARK) ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
         id="submit"
       >
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-12 px-6 md:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:px-12">
@@ -391,7 +391,7 @@ export default function ForRealtorsPage() {
       {/* ============== Trust signals (DARK) ============== */}
       <section
         className="relative py-20 md:py-24"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12">
           <FadeUp duration={0.5} distance={12}>
@@ -512,7 +512,7 @@ export default function ForRealtorsPage() {
       {/* ============== Final CTA (DARK) ============== */}
       <section
         className="relative overflow-hidden py-20 md:py-28"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"

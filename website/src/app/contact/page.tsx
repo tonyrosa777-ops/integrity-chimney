@@ -38,7 +38,7 @@ export default function ContactPage() {
       {/* ============== Hero ============== */}
       <section
         className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -74,7 +74,7 @@ export default function ContactPage() {
       {/* ============== Two-column ============== */}
       <section
         className="relative py-16 md:py-24"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-10 px-6 md:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-14 lg:px-12">
           {/* LEFT: Form */}
@@ -165,7 +165,7 @@ export default function ContactPage() {
                   <div
                     className="inline-flex items-center gap-2 rounded-md border px-3 py-2"
                     style={{
-                      background: "var(--bg-elevated)",
+                      background: "transparent",
                       borderColor: "rgba(184,115,51,0.20)",
                     }}
                   >

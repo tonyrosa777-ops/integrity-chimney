@@ -56,7 +56,7 @@ export default function AboutPage() {
       {/* ============== Hero ============== */}
       <section
         className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -100,7 +100,7 @@ export default function AboutPage() {
       {/* ============== Founder story ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[820px] px-6 md:px-8 lg:px-12">
           <FadeUp duration={0.5} distance={12}>
@@ -157,7 +157,7 @@ export default function AboutPage() {
       {/* ============== Stats row ============== */}
       <section
         className="relative py-16 md:py-20"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[1100px] px-6 md:px-8 lg:px-12">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
@@ -176,7 +176,7 @@ export default function AboutPage() {
       {/* ============== Credentials ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[1100px] px-6 md:px-8 lg:px-12">
           <FadeUp duration={0.5} distance={12}>
@@ -227,7 +227,7 @@ export default function AboutPage() {
       {/* ============== Featured testimonials (historic angle) ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[1100px] px-6 md:px-8 lg:px-12">
           <FadeUp duration={0.5} distance={12}>
@@ -285,7 +285,7 @@ export default function AboutPage() {
       {/* ============== Final CTA ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[820px] px-6 text-center md:px-8 lg:px-12">
           <FadeUp duration={0.5} distance={12}>

@@ -35,7 +35,7 @@ export default function TestimonialsPage() {
       {/* ============== Hero ============== */}
       <section
         className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -74,7 +74,7 @@ export default function TestimonialsPage() {
       {featured ? (
         <section
           className="relative py-12 md:py-16"
-          style={{ background: "var(--bg-elevated)" }}
+          style={{ background: "transparent" }}
         >
           <div className="mx-auto max-w-[920px] px-6 md:px-8 lg:px-12">
             <FadeUp duration={0.6} distance={16}>
@@ -119,7 +119,7 @@ export default function TestimonialsPage() {
       {/* ============== Paginated grid (client) ============== */}
       <section
         className="relative py-16 md:py-24"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12">
           <Suspense
@@ -140,7 +140,7 @@ export default function TestimonialsPage() {
       {/* ============== Bottom CTA ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[820px] px-6 text-center md:px-8 lg:px-12">
           <FadeUp duration={0.5} distance={12}>

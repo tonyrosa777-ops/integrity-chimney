@@ -54,7 +54,7 @@ export default function FaqPage() {
       {/* ============== Hero ============== */}
       <section
         className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -90,7 +90,7 @@ export default function FaqPage() {
       {/* ============== Accordion groups ============== */}
       <section
         className="relative py-16 md:py-24"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[860px] px-6 md:px-8 lg:px-12">
           <div className="space-y-14 md:space-y-20">
@@ -119,7 +119,7 @@ export default function FaqPage() {
       {/* ============== Bottom CTA ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[820px] px-6 text-center md:px-8 lg:px-12">
           <FadeUp duration={0.5} distance={12}>

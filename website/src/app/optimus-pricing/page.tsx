@@ -196,7 +196,7 @@ function ROICalculator() {
   return (
     <section
       className="relative py-20 md:py-28"
-      style={{ background: "var(--bg-base)" }}
+      style={{ background: "transparent" }}
     >
       <div className="mx-auto max-w-[1100px] px-6 md:px-8 lg:px-12">
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-14">
@@ -568,7 +568,7 @@ function ComparisonTable() {
   return (
     <section
       className="relative py-20 md:py-28"
-      style={{ background: "var(--bg-elevated)" }}
+      style={{ background: "transparent" }}
     >
       <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12">
         <div className="mx-auto mb-12 max-w-2xl text-center md:mb-14">
@@ -780,7 +780,7 @@ export default function OptimusPricingPage() {
       {/* ============== Hero ============== */}
       <section
         className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -836,7 +836,7 @@ export default function OptimusPricingPage() {
       {/* ============== Tier cards ============== */}
       <section
         className="relative py-20 md:py-24"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:items-start lg:gap-7">
@@ -856,7 +856,7 @@ export default function OptimusPricingPage() {
       {/* ============== Closing ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[820px] px-6 text-center md:px-8 lg:px-12">
           <p className="text-eyebrow mb-4">READY WHEN YOU ARE</p>

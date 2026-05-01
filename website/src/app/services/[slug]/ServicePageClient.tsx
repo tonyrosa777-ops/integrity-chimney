@@ -65,7 +65,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
       {/* ── Hero with breadcrumb (dark) ─────────────────────────────────── */}
       <section
         className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-24"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -159,7 +159,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
       <section
         className="border-t py-16 md:py-24"
         style={{
-          background: "var(--bg-elevated)",
+          background: "transparent",
           borderColor: "rgba(184,115,51,0.12)",
         }}
       >
@@ -216,7 +216,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
       <section
         className="border-t py-16 md:py-24"
         style={{
-          background: "var(--bg-base)",
+          background: "transparent",
           borderColor: "rgba(184,115,51,0.12)",
         }}
       >
@@ -243,7 +243,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
                   className="flex items-start gap-4 rounded-lg border-l-2 p-4 md:p-5"
                   style={{
                     borderLeftColor: "var(--accent)",
-                    background: "var(--bg-elevated)",
+                    background: "transparent",
                   }}
                 >
                   <p
@@ -263,7 +263,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
       <section
         className="border-t py-16 md:py-24"
         style={{
-          background: "var(--bg-elevated)",
+          background: "transparent",
           borderColor: "rgba(184,115,51,0.12)",
         }}
       >
@@ -332,7 +332,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
         <section
           className="border-t py-16 md:py-24"
           style={{
-            background: "var(--bg-base)",
+            background: "transparent",
             borderColor: "rgba(184,115,51,0.12)",
           }}
         >
@@ -356,7 +356,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
                   key={`${t.name}-${t.date}`}
                   className="flex h-full flex-col gap-4 rounded-lg border p-6 md:p-7"
                   style={{
-                    background: "var(--bg-elevated)",
+                    background: "transparent",
                     borderColor: "rgba(184,115,51,0.18)",
                   }}
                 >
@@ -397,7 +397,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
       <section
         className="border-t py-16 md:py-24"
         style={{
-          background: "var(--bg-elevated)",
+          background: "transparent",
           borderColor: "rgba(184,115,51,0.12)",
         }}
       >
@@ -478,7 +478,7 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
       <section
         className="border-t py-16 md:py-24"
         style={{
-          background: "var(--bg-base)",
+          background: "transparent",
           borderColor: "rgba(184,115,51,0.12)",
         }}
       >

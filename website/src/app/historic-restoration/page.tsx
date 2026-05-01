@@ -115,7 +115,7 @@ export default function HistoricRestorationPage() {
       {/* ============== Hero (DARK) ============== */}
       <section
         className="relative overflow-hidden pt-32 pb-20 md:pt-40 md:pb-28"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -235,7 +235,7 @@ export default function HistoricRestorationPage() {
       {/* ============== Where We Work (DARK) ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12">
           <FadeUp duration={0.5} distance={12}>
@@ -372,7 +372,7 @@ export default function HistoricRestorationPage() {
       {/* ============== Founder Credibility (DARK) ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto grid max-w-[1100px] grid-cols-1 gap-10 px-6 md:px-8 lg:grid-cols-[0.55fr_1fr] lg:gap-14 lg:px-12">
           <FadeUp duration={0.5} distance={14}>
@@ -550,7 +550,7 @@ export default function HistoricRestorationPage() {
       {/* ============== Why Us, Not Them (DARK) ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12">
           <FadeUp duration={0.5} distance={12}>

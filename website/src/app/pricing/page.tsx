@@ -61,7 +61,7 @@ export default function PricingPage() {
       {/* ============== Hero ============== */}
       <section
         className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -108,7 +108,7 @@ export default function PricingPage() {
       {/* ============== Pricing cards ============== */}
       <section
         className="relative py-16 md:py-24"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[1200px] px-6 md:px-8 lg:px-12">
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-7">
@@ -213,13 +213,13 @@ export default function PricingPage() {
       {/* ============== Disclaimer band ============== */}
       <section
         className="relative py-12 md:py-16"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[920px] px-6 md:px-8 lg:px-12">
           <div
             className="rounded-lg px-6 py-7 md:px-9 md:py-8"
             style={{
-              background: "var(--bg-elevated)",
+              background: "transparent",
               borderLeft: "3px solid var(--accent)",
             }}
           >
@@ -244,7 +244,7 @@ export default function PricingPage() {
       {/* ============== Why we publish prices ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-elevated)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[1100px] px-6 md:px-8 lg:px-12">
           <div className="mx-auto mb-12 max-w-2xl text-center md:mb-16">
@@ -296,7 +296,7 @@ export default function PricingPage() {
       {/* ============== Final CTA ============== */}
       <section
         className="relative py-20 md:py-28"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div className="mx-auto max-w-[820px] px-6 text-center md:px-8 lg:px-12">
           <p className="text-eyebrow mb-4">READY WHEN YOU ARE</p>

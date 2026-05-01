@@ -45,7 +45,7 @@ export default function ServicesPage() {
       {/* ── Page Hero (dark) ───────────────────────────────────────────── */}
       <section
         className="relative overflow-hidden pt-32 pb-16 md:pt-40 md:pb-20"
-        style={{ background: "var(--bg-base)" }}
+        style={{ background: "transparent" }}
       >
         <div
           aria-hidden="true"
@@ -85,7 +85,7 @@ export default function ServicesPage() {
       <section
         className="border-t py-16 md:py-24"
         style={{
-          background: "var(--bg-elevated)",
+          background: "transparent",
           borderColor: "rgba(184,115,51,0.12)",
         }}
       >
@@ -128,7 +128,7 @@ export default function ServicesPage() {
       <section
         className="border-t py-16 md:py-24"
         style={{
-          background: "var(--bg-base)",
+          background: "transparent",
           borderColor: "rgba(184,115,51,0.12)",
         }}
       >
@@ -163,7 +163,7 @@ export default function ServicesPage() {
       <section
         className="border-t py-16 md:py-24"
         style={{
-          background: "var(--bg-elevated)",
+          background: "transparent",
           borderColor: "rgba(184,115,51,0.12)",
         }}
       >

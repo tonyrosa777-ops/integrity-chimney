@@ -34,9 +34,9 @@ export default function BlogIndexPage() {
   const rest = sorted.slice(1);
 
   return (
-    <div className="bg-bg-base">
+    <div className="">
       {/* Hero */}
-      <section className="border-b border-text-primary/10 bg-bg-base">
+      <section className="border-b border-text-primary/10">
         <div className="mx-auto w-full max-w-7xl px-6 pt-32 pb-16 md:px-8 md:pt-40 md:pb-24 lg:px-12">
           <p className="text-eyebrow">
             BLOG · CENTRAL NH HEATING SEASON GUIDE

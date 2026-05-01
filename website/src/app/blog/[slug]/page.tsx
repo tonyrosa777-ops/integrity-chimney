@@ -114,7 +114,7 @@ export default async function BlogPostPage({ params }: RouteProps) {
       : null;
 
   return (
-    <article className="bg-bg-base">
+    <article className="">
       <script
         type="application/ld+json"
         // eslint-disable-next-line react/no-danger
