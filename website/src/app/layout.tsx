@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: "%s | Integrity Chimney Services LLC",
   },
   description:
-    "Fifteen years on Bow rooftops. Chimney sweeps, Level 2 inspections, historic restoration, masonry, and roofing across central NH. Free estimates, 24-hour callback, fully insured.",
+    "Chimney, masonry, and roofing across central New Hampshire. One craftsman who answers the phone. Free estimates, fully insured, same-week scheduling for transactions under contract.",
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -45,14 +45,14 @@ export const metadata: Metadata = {
     title:
       "Integrity Chimney Services LLC | Bow, NH Chimney + Masonry + Roofing",
     description:
-      "Fifteen years on Bow rooftops. Chimney, masonry, and roofing across central NH. 24-hour callback or your free estimate is on us.",
+      "Chimney, masonry, and roofing across central New Hampshire. Owner-operated. We answer the phone or your free estimate is on us.",
   },
   twitter: {
     card: "summary_large_image",
     title:
       "Integrity Chimney Services LLC | Bow, NH Chimney + Masonry + Roofing",
     description:
-      "Fifteen years on Bow rooftops. Chimney, masonry, and roofing across central NH. 24-hour callback or your free estimate is on us.",
+      "Chimney, masonry, and roofing across central New Hampshire. Owner-operated. We answer the phone or your free estimate is on us.",
   },
   robots: { index: true, follow: true },
 };

@@ -21,7 +21,7 @@ type Props = {
 const TRUST_CHECKLIST: ReadonlyArray<string> = [
   "BBB A+ Accredited",
   "Fully Insured",
-  "15+ Years Experience",
+  "Owner-Operated",
   "Free Estimates",
   "24-Hour Callback",
 ];

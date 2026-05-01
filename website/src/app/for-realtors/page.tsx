@@ -80,7 +80,7 @@ const TRUST_BADGES = [
   "BBB A+ Accredited",
   "Fully Insured",
   "NHAR-Aligned",
-  "15+ Years Owner-Operated",
+  "Owner-Operated, Always",
   "Photo Documentation Standard",
 ];
 

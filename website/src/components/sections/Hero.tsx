@@ -11,7 +11,7 @@
 import Link from "next/link";
 import { EmberDriftCanvas } from "@/components/animations/EmberDriftCanvas";
 import { FadeUp } from "@/components/animations";
-import { hero, siteConfig, promise } from "@/data/site";
+import { hero, siteConfig } from "@/data/site";
 
 export function Hero() {
   return (
@@ -39,34 +39,6 @@ export function Hero() {
 
       {/* Layer 3: content */}
       <div className="relative z-10 mx-auto w-full max-w-[1320px] px-6 pt-24 pb-20 md:px-8 md:pt-40 md:pb-32 lg:px-12">
-        {/* Promise / SLA band */}
-        <FadeUp delay={0} duration={0.5} distance={12}>
-          <div className="mb-8 flex w-full items-center justify-center md:mb-10">
-            <div
-              className="inline-flex max-w-full flex-wrap items-center justify-center gap-x-3 gap-y-1 rounded-md border px-4 py-2 text-center"
-              style={{
-                background: "var(--bg-elevated)",
-                borderColor: "rgba(184,115,51,0.25)",
-              }}
-            >
-              <span
-                className="text-eyebrow"
-                style={{ color: "var(--accent)" }}
-              >
-                {promise.headline || "24-Hour Callback"}
-              </span>
-              {promise.guarantee ? (
-                <span
-                  className="font-mono text-[0.7rem] uppercase tracking-[0.08em]"
-                  style={{ color: "var(--text-secondary)" }}
-                >
-                  {promise.guarantee}
-                </span>
-              ) : null}
-            </div>
-          </div>
-        </FadeUp>
-
         <div className="mx-auto max-w-4xl">
           {/* Eyebrow */}
           <FadeUp delay={0.1} duration={0.5} distance={16}>
@@ -82,7 +54,8 @@ export function Hero() {
               className="hero-shimmer font-display text-display text-center"
               style={{ fontWeight: 600 }}
             >
-              {hero.headline || `Fifteen years on ${siteConfig.address.city} rooftops.`}
+              {hero.headline ||
+                "Chimney. Masonry. Roofing. One craftsman who answers the phone."}
             </h1>
           </FadeUp>
 
@@ -133,7 +106,7 @@ export function Hero() {
             >
               {(hero.trustBadges && hero.trustBadges.length > 0
                 ? hero.trustBadges
-                : ["Fully Insured", "BBB A+", "Free Estimates", "15+ Years"]
+                : ["Fully Insured", "BBB A+", "Free Estimates", "Owner-Operated"]
               ).map((badge, idx) => (
                 <li
                   key={`${badge}-${idx}`}

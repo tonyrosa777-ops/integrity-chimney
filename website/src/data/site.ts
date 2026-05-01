@@ -36,17 +36,17 @@ export const siteConfig = {
    Hero (homepage)
    ============================================================= */
 export const hero = {
-  eyebrow: "BOW, NH · CHIMNEY · MASONRY · ROOFING",
-  headline: "Fifteen years on Bow rooftops. We answer the phone.",
+  eyebrow: "CENTRAL NEW HAMPSHIRE · CHIMNEY · MASONRY · ROOFING",
+  headline: "Chimney. Masonry. Roofing. One craftsman who answers the phone.",
   subheadline:
-    "Owner-operated chimney, masonry, and roofing for the houses Bow, Concord, Hopkinton, Henniker, Loudon, and Pembroke have been heating for two centuries. Free estimates. Fully insured. Same week scheduling for real estate transactions.",
+    "Owner-operated. Fully insured. Free estimates across Bow, Concord, Hopkinton, Henniker, Loudon, and Pembroke. Same-week scheduling for transactions under contract.",
   primaryCTA: { label: "Book Inspection", href: "/booking" },
   secondaryCTA: { label: "Take the Quiz", href: "/quiz" },
   trustBadges: [
     "Fully Insured",
     "BBB A+ Accredited",
     "Free Estimates",
-    "15+ Years in Bow",
+    "Owner-Operated",
   ],
 };
 
@@ -573,9 +573,9 @@ export const founder = {
   name: "Kevin Fredrickson",
   title: "Owner and Lead Craftsman",
   photo: "",
-  bio: "Kevin Fredrickson has spent fifteen years on rooftops between Bow and the Lakes Region, working chimneys, masonry, and roofing on everything from new construction Capes in Hopkinton to 1798 center-chimney colonials in Henniker. He started Integrity because the trade needed someone who would answer the phone, show up the day he said, and tell homeowners the truth about what their chimney actually needed. Most of his work comes from realtor referrals and neighbors who watched him fix a stack down the road. He runs the company himself: he answers the phone, he writes the quote, he climbs the roof. When you hire Integrity, you get Kevin and the small crew he trusts. Not a call center, not a subcontractor, not a sales rep with a clipboard.",
+  bio: "Kevin Fredrickson built his career on rooftops between Bow and the Lakes Region, working chimneys, masonry, and roofing on everything from new construction Capes in Hopkinton to 1798 center-chimney colonials in Henniker. He started Integrity because the trade needed someone who would answer the phone, show up the day he said, and tell homeowners the truth about what their chimney actually needed. Most of his work comes from realtor referrals and neighbors who watched him fix a stack down the road. He runs the company himself: he answers the phone, he writes the quote, he climbs the roof. When you hire Integrity, you get Kevin and the small crew he trusts. Not a call center, not a subcontractor, not a sales rep with a clipboard.",
   credentials: [
-    "15+ years owner-operated in central NH",
+    "Owner-operated in central NH",
     "Fully insured",
     "BBB A+ accredited",
     "Free estimates on all repairs over $500",
@@ -1206,7 +1206,7 @@ export const serviceAreas: ServiceArea[] = [
     distance: "Home base",
     founded: 1727,
     housingNote: "Mix of 1700s center-chimney capes, 1800s farmhouses, and post-1990 colonials. Median single-family price $740,000 (Aug 2025).",
-    description: "Bow is home. We're physically based here, we live here, and we know which roads ice up first in November. Bow's housing stock is unusual: side-by-side you'll find a 1798 center-chimney Cape and a 2018 colonial, often on the same street. We work both. The historic center along Route 3A and the homes around Bow Pond have some of the best-preserved Federal-era chimneys in Merrimack County, and we've spent fifteen years repointing them with lime mortar instead of letting Portland cement spall the brick. For the modern homes off South Bow Road, it's straightforward chimney sweeps, Level 2 inspections for resales, and roof replacements when the original architectural shingles start to age out.",
+    description: "Bow is home. We're physically based here, we live here, and we know which roads ice up first in November. Bow's housing stock is unusual: side-by-side you'll find a 1798 center-chimney Cape and a 2018 colonial, often on the same street. We work both. The historic center along Route 3A and the homes around Bow Pond have some of the best-preserved Federal-era chimneys in Merrimack County, and we repoint them with lime mortar instead of letting Portland cement spall the brick. For the modern homes off South Bow Road, it's straightforward chimney sweeps, Level 2 inspections for resales, and roof replacements when the original architectural shingles start to age out.",
     faqs: [
       { q: "How fast can you get to a Bow address?", a: "Most weeks, same week. We're physically based in Bow. If you're calling from Bow, you're often the closest job on the schedule." },
       { q: "Do you handle the historic homes around Bow center?", a: "Yes. Pre-1900 work is one of our specialties. Lime mortar, period-appropriate brick, Rumford fireplace restoration, beehive bake ovens. The center-chimney homes around Bow center, Bow Bog, and the older farms are exactly the work we want." },
@@ -1306,8 +1306,8 @@ export const trustSignals: Array<{ icon: string; label: string; detail: string }
   },
   {
     icon: "🗓️",
-    label: "15+ Years Owner-Operated",
-    detail: "Kevin Fredrickson on every job. Not a call center.",
+    label: "Owner On Every Job",
+    detail: "Kevin Fredrickson personally. Not a call center, not a subcontractor.",
   },
   {
     icon: "📞",
@@ -1349,7 +1349,7 @@ export const nav = {
    Footer
    ============================================================= */
 export const footer = {
-  tagline: "Fifteen years on Bow rooftops. We answer the phone, show up when we said, and tell you what your chimney actually needs.",
+  tagline: "Chimney, masonry, and roofing across central New Hampshire. We answer the phone, show up when we said, and tell you what your chimney actually needs.",
   legal: {
     licenseNotice: "Integrity Chimney Services LLC, Bow, NH. Fully insured. Free estimates on repairs over $500.",
     insuredNotice: "Fully insured. Free estimates.",

@@ -97,7 +97,7 @@ const FEATURED_TESTIMONIALS = HISTORIC_TESTIMONIALS.slice(0, 3);
 const DIFFERENTIATORS = [
   {
     title: "We are central NH-based, not Vermont.",
-    body: "Chimney Savers is the only other NH-facing operation that credibly claims historic restoration, and they run booked 4 to 8 weeks out from a Vermont base. Our trucks are on Bow rooftops every week. Most projects start within 3 weeks of the assessment.",
+    body: "Chimney Savers is the only other NH-facing operation that credibly claims historic restoration, and they run booked 4 to 8 weeks out from a Vermont base. Our trucks are on central New Hampshire rooftops every week. Most projects start within 3 weeks of the assessment.",
   },
   {
     title: "Chimney-first, not general masonry.",
@@ -424,7 +424,7 @@ export default function HistoricRestorationPage() {
                 className="mt-4 text-base leading-relaxed md:text-lg"
                 style={{ color: "var(--text-secondary)" }}
               >
-                {founder.name} has spent the last fifteen years on roofs and in fireboxes between Bow and the Lakes Region. The pre-1900 work is where the craft lives. He has rebuilt Federal fireboxes in Henniker, beehive ovens in Hopkinton, and Rumford geometry in 1808 colonials in Pembroke.
+                {founder.name} has spent his career on roofs and in fireboxes between Bow and the Lakes Region. The pre-1900 work is where the craft lives. He has rebuilt Federal fireboxes in Henniker, beehive ovens in Hopkinton, and Rumford geometry in 1808 colonials in Pembroke.
               </p>
             </FadeUp>
             <FadeUp delay={0.3} duration={0.6} distance={14}>

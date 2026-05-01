@@ -62,7 +62,7 @@ export default async function OG() {
               display: "flex",
             }}
           >
-            Fifteen years on Bow rooftops.
+            One craftsman who answers the phone.
           </div>
           <div
             style={{

@@ -20,7 +20,7 @@ export function WebsiteSchema() {
     url: siteConfig.url,
     name: siteConfig.name,
     description:
-      "Bow, New Hampshire chimney, masonry, and roofing contractor. Owner-operated, fifteen years in business, free estimates, fully insured.",
+      "Bow, New Hampshire chimney, masonry, and roofing contractor. Owner-operated, free estimates, fully insured. The craftsman who answers the phone.",
     inLanguage: "en-US",
     publisher: {
       "@id": `${siteConfig.url}#business`,

@@ -28,7 +28,7 @@ export function LocalBusinessSchema() {
     telephone: siteConfig.phone,
     email: siteConfig.email,
     description:
-      "Owner-operated chimney, masonry, and roofing contractor based in Bow, New Hampshire. Fifteen years on central NH rooftops. Sweeps, Level 2 inspections, lime-mortar historic restoration, stainless steel liners, crown rebuilds, and architectural roofing.",
+      "Owner-operated chimney, masonry, and roofing contractor based in Bow, New Hampshire. Sweeps, Level 2 inspections, lime-mortar historic restoration, stainless steel liners, crown rebuilds, and architectural roofing across central New Hampshire.",
     address: {
       "@type": "PostalAddress",
       addressLocality: siteConfig.address.city,

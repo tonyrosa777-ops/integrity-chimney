@@ -18,14 +18,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Services | Integrity Chimney Services LLC",
     description:
-      "Eleven owner-operated chimney, masonry, and roofing services across central New Hampshire. Fifteen years on Bow rooftops. Free estimates.",
+      "Eleven owner-operated chimney, masonry, and roofing services across central New Hampshire. One craftsman who answers the phone. Free estimates.",
     url: `${siteConfig.url}/services`,
   },
   twitter: {
     card: "summary_large_image",
     title: "Services | Integrity Chimney Services LLC",
     description:
-      "Eleven owner-operated chimney, masonry, and roofing services across central New Hampshire. Fifteen years on Bow rooftops. Free estimates.",
+      "Eleven owner-operated chimney, masonry, and roofing services across central New Hampshire. One craftsman who answers the phone. Free estimates.",
   },
 };
 

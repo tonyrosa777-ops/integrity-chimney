@@ -54,7 +54,7 @@ export function GalleryClient() {
           <p className="text-eyebrow">Real work · Central New Hampshire</p>
           <h1 className="font-display text-h1 mt-3 max-w-3xl">
             <span className="hero-shimmer">
-              Fifteen years of chimneys, masonry, and roofs.
+              Chimneys, masonry, and roofs across central New Hampshire.
             </span>
           </h1>
           <p className="mt-4 max-w-2xl text-text-secondary">

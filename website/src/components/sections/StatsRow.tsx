@@ -19,10 +19,10 @@ type Stat = {
 export function StatsRow() {
   const stats: Stat[] = [
     {
-      end: siteConfig.yearsExperience,
-      suffix: "+",
-      label: "Years on Bow rooftops",
-      detail: `Owner-operated since ${siteConfig.founded}. Kevin Fredrickson on every job.`,
+      end: 3,
+      suffix: "",
+      label: "Trades under one roof",
+      detail: "Chimney, masonry, and roofing. One craftsman. One quote. One warranty.",
     },
     {
       end: testimonials.length,
