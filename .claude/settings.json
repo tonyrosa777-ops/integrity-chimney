@@ -70,7 +70,12 @@
       "mcp__playwright__browser_take_screenshot",
       "mcp__playwright__browser_snapshot",
       "mcp__playwright__browser_click",
-      "Bash(taskkill //PID 23928 //F)"
+      "Bash(taskkill //PID 23928 //F)",
+      "Bash(command -v vercel)",
+      "Bash(vercel projects *)",
+      "Bash(vercel teams *)",
+      "Bash(vercel build *)",
+      "Bash(vercel inspect *)"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git"
