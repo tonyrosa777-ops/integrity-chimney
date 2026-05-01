@@ -1,54 +1,27 @@
 /**
  * Quiz.tsx: "Find Your Chimney Service"
- * Multi-step diagnostic quiz with framer-motion step transitions, lead capture,
- * and a scored outcome that maps to a recommended service + booking CTA.
+ * Multi-step diagnostic quiz with framer-motion step transitions and a scored
+ * outcome that maps to a recommended service + inline BookingCalendar.
  *
  * Source of truth for copy: src/data/site.ts (quiz). No hardcoded strings.
- * Source of truth for color: globals.css design tokens (brick / accent / etc).
+ * Source of truth for color: globals.css design tokens.
  *
  * Flow:
- *   step 0          : hook + start CTA
- *   step 1..N       : questions with emoji-forward option grid
- *   step N+1        : lead capture (name, email, phone)
- *   step N+2        : result (highest scoring outcome)
+ *   step 1..N    : questions with emoji-forward option grid (auto-advance)
+ *   step N+1     : result + inline BookingCalendar (no email gate)
+ *
+ * No hook step (the /quiz page hero serves as the intro).
+ * No lead capture step (Calendly form on the embedded calendar collects name/email).
  */
 
 "use client";
 
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { quiz } from "@/data/site";
 import type { QuizOption, QuizOutcome } from "@/data/site";
+import { BookingCalendar } from "@/components/booking/BookingCalendar";
 import { cn } from "@/lib/utils";
-
-/* -------------------------------------------------------------------------- */
-/* Types                                                                       */
-/* -------------------------------------------------------------------------- */
-
-type LeadFormValues = {
-  name: string;
-  email: string;
-  phone?: string;
-};
-
-type AnswerRecord = {
-  questionIndex: number;
-  optionIndex: number;
-  label: string;
-};
-
-const leadSchema = z.object({
-  name: z.string().trim().min(2, "Please enter your name."),
-  email: z.string().trim().email("Please enter a valid email."),
-  phone: z
-    .string()
-    .trim()
-    .optional()
-    .or(z.literal("")),
-});
 
 /* -------------------------------------------------------------------------- */
 /* Helpers                                                                     */
@@ -57,8 +30,7 @@ const leadSchema = z.object({
 function pickOutcome(
   selectedOptions: QuizOption[],
   outcomes: QuizOutcome[]
-): { outcome: QuizOutcome; scores: Record<string, number> } {
-  // Sum scores across selected options for each outcome id.
+): QuizOutcome {
   const totals: Record<string, number> = {};
   for (const outcome of outcomes) totals[outcome.id] = 0;
   for (const opt of selectedOptions) {
@@ -67,7 +39,6 @@ function pickOutcome(
       totals[outcomeId] += value;
     }
   }
-  // Tie -> first outcome (stable order from site.ts).
   let winner = outcomes[0];
   let winnerScore = totals[winner.id] ?? 0;
   for (const candidate of outcomes) {
@@ -77,7 +48,7 @@ function pickOutcome(
       winnerScore = score;
     }
   }
-  return { outcome: winner, scores: totals };
+  return winner;
 }
 
 const slideVariants = {
@@ -94,20 +65,10 @@ export function Quiz() {
   const totalQuestions = quiz.steps.length;
 
   // Step model:
-  //   0                       => hook
-  //   1..totalQuestions       => question N
-  //   totalQuestions + 1      => lead capture
-  //   totalQuestions + 2      => result
-  const [step, setStep] = useState(0);
+  //   1..totalQuestions   => question N
+  //   totalQuestions + 1  => result + inline BookingCalendar
+  const [step, setStep] = useState(1);
   const [selections, setSelections] = useState<Record<number, number>>({});
-  const [submitting, setSubmitting] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
-  const [submitted, setSubmitted] = useState(false);
-
-  const form = useForm<LeadFormValues>({
-    mode: "onTouched",
-    defaultValues: { name: "", email: "", phone: "" },
-  });
 
   const selectedOptions = useMemo<QuizOption[]>(() => {
     const out: QuizOption[] = [];
@@ -120,85 +81,31 @@ export function Quiz() {
     return out;
   }, [selections, totalQuestions]);
 
-  const { outcome, scores } = useMemo(
+  const outcome = useMemo(
     () => pickOutcome(selectedOptions, quiz.outcomes),
     [selectedOptions]
   );
 
-  const allAnswered = selectedOptions.length === totalQuestions;
-  const isHook = step === 0;
   const isQuestion = step >= 1 && step <= totalQuestions;
-  const isLead = step === totalQuestions + 1;
-  const isResult = step === totalQuestions + 2;
+  const isResult = step === totalQuestions + 1;
   const currentQuestionIndex = step - 1;
 
   function handleSelectOption(questionIndex: number, optionIndex: number) {
     setSelections((prev) => ({ ...prev, [questionIndex]: optionIndex }));
-    // Auto-advance to next step shortly after selection (small delay so users
-    // see their choice settle in).
     window.setTimeout(() => {
       setStep((s) => s + 1);
     }, 220);
   }
 
   function handleBack() {
-    setStep((s) => Math.max(0, s - 1));
+    setStep((s) => Math.max(1, s - 1));
   }
 
-  async function handleLeadSubmit(values: LeadFormValues) {
-    setSubmitting(true);
-    setSubmitError(null);
-    try {
-      const answers: AnswerRecord[] = [];
-      for (let i = 0; i < totalQuestions; i++) {
-        const optionIndex = selections[i];
-        if (optionIndex === undefined) continue;
-        answers.push({
-          questionIndex: i,
-          optionIndex,
-          label: quiz.steps[i].options[optionIndex].label,
-        });
-      }
-      const payload = {
-        answers,
-        scores,
-        outcome: outcome.id,
-        lead: {
-          name: values.name.trim(),
-          email: values.email.trim(),
-          phone: values.phone?.trim() || undefined,
-        },
-      };
-      const res = await fetch("/api/quiz", {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      if (!res.ok) {
-        const data = (await res.json().catch(() => ({}))) as {
-          error?: string;
-        };
-        throw new Error(data.error || "Submission failed. Please try again.");
-      }
-      setSubmitted(true);
-      setStep(totalQuestions + 2);
-    } catch (err) {
-      setSubmitError(
-        err instanceof Error ? err.message : "Submission failed. Please try again."
-      );
-    } finally {
-      setSubmitting(false);
-    }
-  }
-
-  // Progress indicator: shown during questions only.
   const progressLabel = isQuestion
     ? `Step ${currentQuestionIndex + 1} of ${totalQuestions}`
-    : isLead
-      ? "Almost done"
-      : isResult
-        ? "Your match"
-        : "";
+    : isResult
+      ? "Your match"
+      : "";
 
   return (
     <section
@@ -206,7 +113,7 @@ export function Quiz() {
       className="w-full"
     >
       {/* Progress bar */}
-      {(isQuestion || isLead) && (
+      {isQuestion && (
         <div className="mb-8 md:mb-10">
           <div className="flex items-center justify-between">
             <span
@@ -215,7 +122,7 @@ export function Quiz() {
             >
               {progressLabel}
             </span>
-            {step > 1 && !submitting && (
+            {step > 1 && (
               <button
                 type="button"
                 onClick={handleBack}
@@ -230,10 +137,8 @@ export function Quiz() {
             className="mt-3 flex gap-1.5"
             aria-hidden="true"
           >
-            {Array.from({ length: totalQuestions + 1 }).map((_, idx) => {
-              const filled =
-                (isQuestion && idx <= currentQuestionIndex) ||
-                (isLead && idx <= totalQuestions);
+            {Array.from({ length: totalQuestions }).map((_, idx) => {
+              const filled = idx <= currentQuestionIndex;
               return (
                 <span
                   key={idx}
@@ -251,52 +156,6 @@ export function Quiz() {
       )}
 
       <AnimatePresence mode="wait">
-        {/* HOOK STEP */}
-        {isHook && (
-          <motion.div
-            key="hook"
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="text-center"
-          >
-            <p
-              className="text-eyebrow mb-4"
-              style={{ color: "var(--accent)" }}
-            >
-              {totalQuestions} questions
-            </p>
-            <h2
-              className="font-display text-h1"
-              style={{ color: "var(--text-primary)", fontWeight: 600 }}
-            >
-              {quiz.hookHeadline}
-            </h2>
-            <p
-              className="mx-auto mt-5 max-w-xl text-base leading-relaxed md:text-lg"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              {quiz.hookBody}
-            </p>
-            <div className="mt-10 flex justify-center">
-              <button
-                type="button"
-                onClick={() => setStep(1)}
-                className="font-mono inline-flex items-center justify-center rounded-md px-8 py-3.5 text-sm uppercase tracking-[0.08em] transition-all duration-200 hover:brightness-110 active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4"
-                style={{
-                  background: "var(--primary)",
-                  color: "var(--text-primary)",
-                  outlineColor: "var(--accent)",
-                }}
-              >
-                {quiz.startCTA}
-              </button>
-            </div>
-          </motion.div>
-        )}
-
         {/* QUESTION STEPS */}
         {isQuestion && (
           <motion.div
@@ -364,131 +223,8 @@ export function Quiz() {
           </motion.div>
         )}
 
-        {/* LEAD CAPTURE STEP */}
-        {isLead && (
-          <motion.div
-            key="lead"
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className="mx-auto max-w-lg"
-          >
-            <h2
-              className="font-display text-center text-h2"
-              style={{ color: "var(--text-primary)", fontWeight: 600 }}
-            >
-              Where should we send your match?
-            </h2>
-            <p
-              className="mt-3 text-center text-sm md:text-base"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              We will send your result and a real next step. No spam.
-            </p>
-
-            <form
-              onSubmit={form.handleSubmit(async (values) => {
-                const parsed = leadSchema.safeParse(values);
-                if (!parsed.success) {
-                  for (const issue of parsed.error.issues) {
-                    const field = issue.path[0] as keyof LeadFormValues;
-                    form.setError(field, { message: issue.message });
-                  }
-                  return;
-                }
-                await handleLeadSubmit(parsed.data);
-              })}
-              className="mt-8 flex flex-col gap-4"
-              noValidate
-            >
-              <FieldLabel htmlFor="quiz-name" label="Name" required>
-                <input
-                  id="quiz-name"
-                  type="text"
-                  autoComplete="name"
-                  {...form.register("name", {
-                    required: "Please enter your name.",
-                  })}
-                  className="w-full rounded-md border bg-[var(--bg-elevated)] px-4 py-3 text-base outline-none transition-colors focus:border-[var(--accent)]"
-                  style={{
-                    borderColor: "rgba(245,245,245,0.15)",
-                    color: "var(--text-primary)",
-                  }}
-                  aria-invalid={form.formState.errors.name ? "true" : "false"}
-                />
-                {form.formState.errors.name && (
-                  <FieldError message={form.formState.errors.name.message} />
-                )}
-              </FieldLabel>
-
-              <FieldLabel htmlFor="quiz-email" label="Email" required>
-                <input
-                  id="quiz-email"
-                  type="email"
-                  autoComplete="email"
-                  {...form.register("email", {
-                    required: "Please enter your email.",
-                  })}
-                  className="w-full rounded-md border bg-[var(--bg-elevated)] px-4 py-3 text-base outline-none transition-colors focus:border-[var(--accent)]"
-                  style={{
-                    borderColor: "rgba(245,245,245,0.15)",
-                    color: "var(--text-primary)",
-                  }}
-                  aria-invalid={form.formState.errors.email ? "true" : "false"}
-                />
-                {form.formState.errors.email && (
-                  <FieldError message={form.formState.errors.email.message} />
-                )}
-              </FieldLabel>
-
-              <FieldLabel htmlFor="quiz-phone" label="Phone (optional)">
-                <input
-                  id="quiz-phone"
-                  type="tel"
-                  autoComplete="tel"
-                  {...form.register("phone")}
-                  className="w-full rounded-md border bg-[var(--bg-elevated)] px-4 py-3 text-base outline-none transition-colors focus:border-[var(--accent)]"
-                  style={{
-                    borderColor: "rgba(245,245,245,0.15)",
-                    color: "var(--text-primary)",
-                  }}
-                />
-              </FieldLabel>
-
-              {submitError && (
-                <p
-                  role="alert"
-                  className="rounded-md border px-3 py-2 text-sm"
-                  style={{
-                    borderColor: "rgba(127,42,31,0.5)",
-                    color: "var(--text-primary)",
-                    background: "rgba(127,42,31,0.15)",
-                  }}
-                >
-                  {submitError}
-                </p>
-              )}
-
-              <button
-                type="submit"
-                disabled={submitting || !allAnswered}
-                className="font-mono mt-2 inline-flex items-center justify-center rounded-md px-6 py-3.5 text-sm uppercase tracking-[0.08em] transition-all duration-200 hover:brightness-110 active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4 disabled:cursor-not-allowed disabled:opacity-60"
-                style={{
-                  background: "var(--primary)",
-                  color: "var(--text-primary)",
-                  outlineColor: "var(--accent)",
-                }}
-              >
-                {submitting ? "Sending..." : "See My Match"}
-              </button>
-            </form>
-          </motion.div>
-        )}
-
         {/* RESULT STEP */}
-        {isResult && submitted && (
+        {isResult && (
           <motion.div
             key="result"
             variants={slideVariants}
@@ -496,7 +232,7 @@ export function Quiz() {
             animate="center"
             exit="exit"
             transition={{ duration: 0.45, ease: "easeOut" }}
-            className="mx-auto max-w-2xl"
+            className="mx-auto w-full max-w-3xl"
           >
             <p
               className="text-eyebrow text-center"
@@ -551,73 +287,45 @@ export function Quiz() {
                     {outcome.recommendedService}
                   </span>
                 </div>
-
-                <Link
-                  href={outcome.ctaHref}
-                  className="font-mono mt-8 inline-flex items-center justify-center rounded-md px-7 py-3.5 text-sm uppercase tracking-[0.08em] transition-all duration-200 hover:brightness-110 active:translate-y-px focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4"
-                  style={{
-                    background: "var(--primary)",
-                    color: "var(--text-primary)",
-                    outlineColor: "var(--accent)",
-                  }}
-                >
-                  Book {outcome.recommendedService}
-                </Link>
               </div>
             </div>
 
+            {/* Bridge copy: turns the result into action. */}
+            <div className="mt-12 text-center">
+              <p
+                className="text-eyebrow"
+                style={{ color: "var(--accent)" }}
+              >
+                Next step
+              </p>
+              <h3
+                className="font-display mt-3 text-h3"
+                style={{ color: "var(--text-primary)", fontWeight: 600 }}
+              >
+                Pick a time. Kevin will be there.
+              </h3>
+              <p
+                className="mx-auto mt-4 max-w-xl text-base leading-relaxed md:text-lg"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                No call center. No subcontractor. The owner shows up, walks the chimney with you, and leaves with a written scope. Free estimate, fully insured, BBB A+ accredited since 2009.
+              </p>
+            </div>
+
+            <div className="mt-8">
+              <BookingCalendar />
+            </div>
+
             <p
-              className="mt-6 text-center text-xs"
+              className="mt-8 text-center text-xs"
               style={{ color: "var(--text-muted)" }}
             >
-              We sent a copy to your email. Someone will be in touch within 4 business hours.
+              Prefer to talk it through first? Call (603) 660-4644.
             </p>
           </motion.div>
         )}
       </AnimatePresence>
     </section>
-  );
-}
-
-/* -------------------------------------------------------------------------- */
-/* Internal building blocks                                                    */
-/* -------------------------------------------------------------------------- */
-
-function FieldLabel({
-  htmlFor,
-  label,
-  required,
-  children,
-}: {
-  htmlFor: string;
-  label: string;
-  required?: boolean;
-  children: React.ReactNode;
-}) {
-  return (
-    <label htmlFor={htmlFor} className="block">
-      <span
-        className="font-mono mb-1.5 block text-[0.7rem] uppercase tracking-[0.12em]"
-        style={{ color: "var(--text-secondary)" }}
-      >
-        {label}
-        {required ? " *" : ""}
-      </span>
-      {children}
-    </label>
-  );
-}
-
-function FieldError({ message }: { message?: string }) {
-  if (!message) return null;
-  return (
-    <p
-      role="alert"
-      className="mt-1.5 text-xs"
-      style={{ color: "var(--accent)" }}
-    >
-      {message}
-    </p>
   );
 }
 
