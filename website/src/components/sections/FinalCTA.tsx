@@ -15,7 +15,7 @@ export function FinalCTA() {
   return (
     <section
       aria-labelledby="final-cta-heading"
-      className="relative w-full overflow-hidden bg-bg-elevated py-20 md:py-28"
+      className="relative w-full overflow-hidden bg-transparent py-20 md:py-28"
     >
       {/* Backdrop accents */}
       <div

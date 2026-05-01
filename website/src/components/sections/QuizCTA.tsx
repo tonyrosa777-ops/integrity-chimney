@@ -25,7 +25,7 @@ export function QuizCTA() {
   return (
     <section
       aria-labelledby="quiz-cta-heading"
-      className="relative w-full overflow-hidden bg-bg-elevated py-20 md:py-28"
+      className="relative w-full overflow-hidden bg-transparent py-20 md:py-28"
     >
       {/* Copper accent backdrop */}
       <div

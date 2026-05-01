@@ -9,7 +9,6 @@
 "use client";
 
 import Link from "next/link";
-import { EmberDriftCanvas } from "@/components/animations/EmberDriftCanvas";
 import { FadeUp } from "@/components/animations";
 import { hero, siteConfig } from "@/data/site";
 
@@ -17,15 +16,9 @@ export function Hero() {
   return (
     <section
       className="relative flex min-h-[100svh] items-start overflow-hidden"
-      style={{ background: "var(--bg-base)", minHeight: "max(100svh, 720px)" }}
+      style={{ minHeight: "max(100svh, 720px)" }}
     >
-      {/* Layer 1: Ember Drift canvas (decorative background) */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0"
-        style={{ opacity: 0.85 }}
-      >
-        <EmberDriftCanvas className="absolute inset-0 h-full w-full" />
-      </div>
+      {/* Ember canvas now lives globally in layout.tsx (GlobalEmberLayer) */}
 
       {/* Layer 2: radial vignette to seat the type and pull eyes upward */}
       <div

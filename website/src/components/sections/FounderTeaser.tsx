@@ -20,7 +20,7 @@ export function FounderTeaser() {
   return (
     <section
       aria-labelledby="founder-teaser-heading"
-      className="relative w-full overflow-hidden bg-bg-base py-20 md:py-28"
+      className="relative w-full overflow-hidden bg-transparent py-20 md:py-28"
     >
       <div
         aria-hidden="true"

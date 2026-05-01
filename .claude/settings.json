@@ -92,7 +92,10 @@
       "Bash(node scripts/generate-blog-images.mjs)",
       "Bash(node -e \"console.log\\(require\\('typescript'\\).version\\)\")",
       "Bash(node validate-blog.mjs)",
-      "Bash(grep -c \"\\\\.jpg$\")"
+      "Bash(grep -c \"\\\\.jpg$\")",
+      "Bash(sed -i 's/bg-bg-base py-20 md:py-28/bg-transparent py-20 md:py-28/' src/components/sections/BlogPreview.tsx src/components/sections/FounderTeaser.tsx)",
+      "Bash(sed -i 's/bg-bg-elevated py-20 md:py-28/bg-transparent py-20 md:py-28/' src/components/sections/FinalCTA.tsx src/components/sections/QuizCTA.tsx src/components/sections/ServicesPreview.tsx)",
+      "Bash(sed -i 's/bg-bg-elevated border-t border-white\\\\/5/bg-transparent border-t border-white\\\\/5/' src/components/layout/Footer.tsx)"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git",

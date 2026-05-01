@@ -3,6 +3,7 @@ import { Fraunces, Inter_Tight, JetBrains_Mono } from "next/font/google";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { LocalBusinessSchema, WebsiteSchema } from "@/components/seo";
+import { GlobalEmberLayer } from "@/components/animations/GlobalEmberLayer";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -67,11 +68,12 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${interTight.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="min-h-full flex flex-col bg-bg-base">
         <LocalBusinessSchema />
         <WebsiteSchema />
+        <GlobalEmberLayer />
         <Navigation />
-        <main className="flex-1">{children}</main>
+        <main className="relative z-10 flex-1">{children}</main>
         <Footer />
       </body>
     </html>

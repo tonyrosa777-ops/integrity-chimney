@@ -14,7 +14,10 @@ export function Navigation() {
   const [open, setOpen] = useState(false);
   const [areasOpen, setAreasOpen] = useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const moreRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -45,6 +48,18 @@ export function Navigation() {
     document.addEventListener("mousedown", onMouseDown);
     return () => document.removeEventListener("mousedown", onMouseDown);
   }, [areasOpen]);
+
+  // Click-outside closes the desktop "More" dropdown.
+  useEffect(() => {
+    if (!moreOpen) return;
+    const onMouseDown = (e: MouseEvent) => {
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) {
+        setMoreOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", onMouseDown);
+    return () => document.removeEventListener("mousedown", onMouseDown);
+  }, [moreOpen]);
 
   return (
     <>
@@ -160,6 +175,70 @@ export function Navigation() {
                   </Link>
                 );
               })}
+
+              {/* More dropdown - Pricing / Gallery / Blog */}
+              <div ref={moreRef} className="relative">
+                <button
+                  type="button"
+                  onClick={() => setMoreOpen((v) => !v)}
+                  aria-expanded={moreOpen}
+                  aria-haspopup="menu"
+                  aria-label="More"
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-md text-text-secondary hover:text-accent hover:bg-bg-elevated/60 transition-colors"
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <line x1="4" y1="6" x2="20" y2="6" />
+                    <line x1="4" y1="12" x2="20" y2="12" />
+                    <line x1="4" y1="18" x2="20" y2="18" />
+                  </svg>
+                </button>
+
+                <AnimatePresence>
+                  {moreOpen && (
+                    <motion.div
+                      role="menu"
+                      initial={{ opacity: 0, y: 8, scale: 0.97 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.97 }}
+                      transition={{ duration: 0.15 }}
+                      className="absolute right-0 top-full mt-3 w-[220px] rounded-md border border-white/10 bg-bg-elevated shadow-2xl"
+                    >
+                      <div className="px-4 pt-4">
+                        <p
+                          className="font-mono text-[0.65rem] uppercase tracking-[0.14em]"
+                          style={{ color: "var(--accent)" }}
+                        >
+                          More
+                        </p>
+                      </div>
+                      <ul className="grid grid-cols-1 gap-1 p-3" role="none">
+                        {nav.more.map((item) => (
+                          <li key={item.href} role="none">
+                            <Link
+                              role="menuitem"
+                              href={item.href}
+                              onClick={() => setMoreOpen(false)}
+                              className="block rounded-sm px-3 py-2 text-sm text-text-primary transition-colors hover:bg-[rgba(184,115,51,0.08)] hover:text-accent"
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </nav>
 
             <div className="hidden md:flex items-center gap-3">
@@ -324,6 +403,49 @@ export function Navigation() {
                     </Link>
                   );
                 })}
+
+                {/* Mobile More group - Pricing / Gallery / Blog */}
+                <div className="border-b border-white/5">
+                  <button
+                    type="button"
+                    onClick={() => setMobileMoreOpen((v) => !v)}
+                    aria-expanded={mobileMoreOpen}
+                    className="flex w-full items-center justify-between py-3 text-left text-base text-text-primary hover:text-accent transition-colors"
+                  >
+                    <span>More</span>
+                    <span
+                      aria-hidden="true"
+                      className={`inline-block text-[0.7rem] transition-transform duration-200 ${
+                        mobileMoreOpen ? "rotate-180" : ""
+                      }`}
+                    >
+                      ▾
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {mobileMoreOpen && (
+                      <motion.ul
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="overflow-hidden"
+                      >
+                        {nav.more.map((item) => (
+                          <li key={item.href}>
+                            <Link
+                              href={item.href}
+                              onClick={() => setOpen(false)}
+                              className="block py-2 pl-4 text-sm text-text-secondary hover:text-accent"
+                            >
+                              {item.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+                </div>
               </nav>
 
               <div className="pt-4 mt-4 border-t border-white/10 flex flex-col gap-3">

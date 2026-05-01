@@ -4,7 +4,7 @@ import { telHref } from "@/lib/utils";
 
 export function Footer() {
   return (
-    <footer className="bg-bg-elevated border-t border-white/5">
+    <footer className="bg-transparent border-t border-white/5">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand + contact */}

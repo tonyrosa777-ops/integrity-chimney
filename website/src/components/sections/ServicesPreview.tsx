@@ -26,7 +26,7 @@ export function ServicesPreview() {
   return (
     <section
       aria-labelledby="services-preview-heading"
-      className="relative w-full bg-bg-elevated py-20 md:py-28"
+      className="relative w-full bg-transparent py-20 md:py-28"
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-8 lg:px-12">
         <FadeUp delay={0} duration={0.6} distance={20}>
