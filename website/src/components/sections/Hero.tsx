@@ -18,15 +18,42 @@ export function Hero() {
       className="relative flex min-h-[100svh] items-start overflow-hidden"
       style={{ minHeight: "max(100svh, 720px)" }}
     >
-      {/* Ember canvas now lives globally in layout.tsx (GlobalEmberLayer) */}
+      {/* Layer 0: Hero video (desktop+tablet only) with poster fallback.
+          Mobile (≤767px) uses the poster as a CSS background — saves ~2 MB on phones.
+          prefers-reduced-motion users see the poster regardless of viewport. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+      >
+        {/* Mobile / reduced-motion: static poster image */}
+        <div
+          className="absolute inset-0 md:hidden motion-reduce:block bg-cover bg-center"
+          style={{
+            backgroundImage: "url('/images/hero/hero-poster.jpg')",
+          }}
+        />
+        {/* Desktop+tablet: looping video with same poster as fallback */}
+        <video
+          className="hidden h-full w-full object-cover md:block motion-reduce:hidden"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/hero/hero-poster.jpg"
+        >
+          <source src="/videos/hero-craftsman.webm" type="video/webm" />
+          <source src="/videos/hero-craftsman.mp4" type="video/mp4" />
+        </video>
+      </div>
 
-      {/* Layer 2: radial vignette to seat the type and pull eyes upward */}
+      {/* Layer 1: dark gradient overlay so the H1 reads cleanly over the video */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 100%, rgba(127,42,31,0.18) 0%, rgba(10,10,10,0) 55%), linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0) 25%, rgba(10,10,10,0) 70%, rgba(10,10,10,0.65) 100%)",
+            "linear-gradient(180deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.55) 35%, rgba(10,10,10,0.45) 60%, rgba(10,10,10,0.85) 100%), radial-gradient(ellipse at 50% 100%, rgba(127,42,31,0.20) 0%, rgba(10,10,10,0) 60%)",
         }}
       />
 

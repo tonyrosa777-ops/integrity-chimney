@@ -103,11 +103,19 @@
       "Read(//c/Projects/andrea-abella-marie/src/app/api/stripe/checkout/**)",
       "Read(//c/Projects/andrea-abella-marie/src/app/api/stripe/webhook/**)",
       "Read(//c/Projects/andrea-abella-marie/src/app/shop/**)",
-      "mcp__playwright__browser_evaluate"
+      "mcp__playwright__browser_evaluate",
+      "Bash(ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,duration,bit_rate -show_entries format=duration,size,bit_rate -of default=noprint_wrappers=0 \"/c/Projects/Integrity-Chimney/kling_20260501_作品_Cinematic__3670_0.mp4\")",
+      "Bash(mkdir -p /tmp/kling-frames)",
+      "Bash(ffmpeg -y -i \"kling_20260501_作品_Cinematic__3670_0.mp4\" -vf \"select='eq\\(n\\\\,0\\)+eq\\(n\\\\,75\\)+eq\\(n\\\\,150\\)+eq\\(n\\\\,225\\)',scale=960:-1\" -vsync vfr -q:v 4 /tmp/kling-frames/frame_%02d.jpg)",
+      "Read(//c/tmp/kling-frames/**)",
+      "Read(//c/Users/Anthony/AppData/Local/Temp/**)",
+      "Bash(ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,duration,bit_rate -show_entries format=duration,size,bit_rate -of default=noprint_wrappers=0 /c/Projects/Integrity-Chimney/*.mp4)",
+      "Bash(ffprobe -v error -show_entries stream=codec_type,codec_name,width,height,duration,bit_rate,r_frame_rate -show_entries format=duration,size,bit_rate -of default=noprint_wrappers=0 \"/c/Projects/Integrity-Chimney/website/kling_20260501_作品_Cinematic__3670_0 \\(1\\).mp4\")"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git",
-      "c:\\Projects\\Optimus Assets"
+      "c:\\Projects\\Optimus Assets",
+      "\\tmp\\kling-frames"
     ]
   }
 }

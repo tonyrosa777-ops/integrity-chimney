@@ -49,3 +49,17 @@ yarn-error.log*
 .playwright-mcp/
 playwright-report/
 test-results/
+
+# Scratch and source media (not deployed; only the transcoded versions in website/public/ ship)
+*.mp4
+!website/public/videos/*.mp4
+*.png
+!website/public/images/**/*.png
+*.webp
+!website/public/images/**/*.webp
+!website/public/**/*
+.tmp-frames/
+prod-*.png
+audit-*.png
+Gemini_Generated_Image_*.png
+hero-vid.mp4
