@@ -47,22 +47,24 @@ export function Hero() {
         </video>
       </div>
 
-      {/* Layer 1: dark gradient overlay so the H1 reads cleanly over the video */}
+      {/* Layer 1: dark gradient overlay. Stronger darkening on the LEFT
+          where text now lives (so the brick column doesn't compete);
+          right side stays lighter so Kevin and the sunset breathe. */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 z-[1]"
         style={{
           background:
-            "linear-gradient(180deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.55) 35%, rgba(10,10,10,0.45) 60%, rgba(10,10,10,0.85) 100%), radial-gradient(ellipse at 50% 100%, rgba(127,42,31,0.20) 0%, rgba(10,10,10,0) 60%)",
+            "linear-gradient(90deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.55) 35%, rgba(10,10,10,0.20) 65%, rgba(10,10,10,0.05) 100%), linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.0) 30%, rgba(10,10,10,0.0) 70%, rgba(10,10,10,0.78) 100%), radial-gradient(ellipse at 25% 100%, rgba(127,42,31,0.22) 0%, rgba(10,10,10,0) 55%)",
         }}
       />
 
-      {/* Layer 3: content */}
+      {/* Layer 3: content (LEFT-ANCHORED — cinematic poster pattern) */}
       <div className="relative z-10 mx-auto w-full max-w-[1320px] px-6 pt-24 pb-20 md:px-8 md:pt-40 md:pb-32 lg:px-12">
-        <div className="mx-auto max-w-4xl">
+        <div className="max-w-3xl">
           {/* Eyebrow */}
           <FadeUp delay={0.1} duration={0.5} distance={16}>
-            <p className="text-eyebrow mb-5 text-center md:mb-6">
+            <p className="text-eyebrow mb-5 md:mb-6">
               {hero.eyebrow ||
                 `${siteConfig.address.city}, ${siteConfig.address.state} · Chimney · Masonry · Roofing`}
             </p>
@@ -71,7 +73,7 @@ export function Hero() {
           {/* H1: Fraunces display, brick-to-copper shimmer */}
           <FadeUp delay={0.3} duration={0.7} distance={24}>
             <h1
-              className="hero-shimmer font-display text-display text-center"
+              className="hero-shimmer font-display text-display"
               style={{ fontWeight: 600 }}
             >
               {hero.headline ||
@@ -82,7 +84,7 @@ export function Hero() {
           {/* Subhead */}
           <FadeUp delay={0.5} duration={0.6} distance={20}>
             <p
-              className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed md:mt-8 md:text-lg"
+              className="mt-6 max-w-xl text-base leading-relaxed md:mt-8 md:text-lg"
               style={{ color: "var(--text-secondary)" }}
             >
               {hero.subheadline ||
@@ -92,7 +94,7 @@ export function Hero() {
 
           {/* CTA pair */}
           <FadeUp delay={0.7} duration={0.6} distance={18}>
-            <div className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4 md:mt-12">
+            <div className="mt-10 flex flex-col items-stretch justify-start gap-3 sm:flex-row sm:items-center sm:gap-4 md:mt-12">
               <Link
                 href={hero.primaryCTA?.href || "/booking"}
                 className="font-mono inline-flex items-center justify-center rounded-md px-6 py-3 text-sm uppercase tracking-[0.08em] transition-all duration-200 hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-4"
@@ -118,7 +120,7 @@ export function Hero() {
             </div>
           </FadeUp>
 
-          {/* Trust band */}
+          {/* Trust band — left-anchored row, badges flow left to right */}
           <FadeUp delay={0.9} duration={0.6} distance={14}>
             <ul
               className="mt-14 grid grid-cols-2 gap-x-6 gap-y-4 border-t pt-8 md:mt-20 md:grid-cols-4 md:gap-x-8"
@@ -130,7 +132,7 @@ export function Hero() {
               ).map((badge, idx) => (
                 <li
                   key={`${badge}-${idx}`}
-                  className="flex flex-col items-center text-center"
+                  className="flex flex-col items-start text-left"
                 >
                   <span
                     className="font-mono text-xs uppercase tracking-[0.12em]"
@@ -151,7 +153,7 @@ export function Hero() {
           {/* Owner-name signature */}
           <FadeUp delay={1.1} duration={0.6} distance={10}>
             <p
-              className="font-display mt-8 text-center text-sm italic md:mt-10 md:text-base"
+              className="font-display mt-8 text-sm italic md:mt-10 md:text-base"
               style={{ color: "var(--text-muted)", fontWeight: 400 }}
             >
               {(hero as { signature?: string }).signature ||
