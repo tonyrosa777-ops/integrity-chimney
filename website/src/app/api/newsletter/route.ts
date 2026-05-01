@@ -91,6 +91,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: fromEmail,
       to: [email],
+      replyTo: ownerEmail,
       subject: `${siteConfig.shortName} - signup received`,
       text: confirmationText,
     });
@@ -99,6 +100,7 @@ export async function POST(request: Request) {
     await resend.emails.send({
       from: fromEmail,
       to: [ownerEmail],
+      replyTo: email,
       subject: `New newsletter signup: ${email}`,
       text: [
         `New signup on ${siteConfig.url}`,

@@ -58,7 +58,10 @@
       "Bash(node -e \"console.log\\(require\\('resend/package.json'\\).version\\)\")",
       "Bash(echo \"TSC_EXIT=$?\")",
       "Bash(npx next *)",
-      "Bash(node scripts/generate-gallery.mjs)"
+      "Bash(node scripts/generate-gallery.mjs)",
+      "Bash(awk '/^export const testimonials/,/^]\\\\s*;\\\\s*$/' \"c:/Projects/Integrity-Chimney/website/src/data/site.ts\")",
+      "Bash(grep -n \"DEMO COPY\\\\|\\\\\\\\[MISSING:\" \"c:/Projects/Integrity-Chimney/website/src/data/site.ts\" \"c:/Projects/Integrity-Chimney/website/src/data/gallery.ts\")",
+      "Read(//c/c/Projects/Integrity-Chimney/website/src/app/**)"
     ],
     "additionalDirectories": [
       "C:\\Projects\\Integrity-Chimney\\website\\.git"
