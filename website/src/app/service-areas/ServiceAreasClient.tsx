@@ -10,8 +10,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { FadeUp } from "@/components/animations";
 import { Button } from "@/components/ui/Button";
-import { serviceAreas, siteConfig } from "@/data/site";
+import { serviceAreas, serviceAreaTiers, siteConfig } from "@/data/site";
 import { telHref } from "@/lib/utils";
+
+const TIER_ORDER = ["primary", "extended", "premium"] as const;
+type TierKey = (typeof TIER_ORDER)[number];
 
 export function ServiceAreasClient() {
   return (
@@ -54,7 +57,25 @@ export function ServiceAreasClient() {
         </div>
       </section>
 
-      {/* ── Areas Grid (elevated) ───────────────────────────────────────── */}
+      {/* ── Tiered Areas (Primary / Extended / Premium) ─────────────────── */}
+      {TIER_ORDER.map((tierKey) => {
+        const tier = serviceAreaTiers[tierKey];
+        const cities = serviceAreas.filter(
+          (area) => (area.tier ?? "primary") === tierKey,
+        );
+        return (
+          <TierSection
+            key={tierKey}
+            tierKey={tierKey}
+            label={tier.label}
+            headline={tier.headline}
+            note={tier.note}
+            cities={cities}
+          />
+        );
+      })}
+
+      {/* ── Don't See Your Town CTA (dark) ──────────────────────────────── */}
       <section
         className="border-t py-16 md:py-24"
         style={{
@@ -62,19 +83,89 @@ export function ServiceAreasClient() {
           borderColor: "rgba(184,115,51,0.12)",
         }}
       >
-        <div className="mx-auto w-full max-w-[1320px] px-6 md:px-8 lg:px-12">
-          <FadeUp delay={0} duration={0.5} distance={12}>
-            <p className="text-eyebrow mb-3">Six Towns On The Route</p>
+        <div className="mx-auto w-full max-w-[820px] px-6 text-center md:px-8 lg:px-12">
+          <FadeUp delay={0} duration={0.5} distance={14}>
+            <p className="text-eyebrow mb-4">Outside The Six?</p>
             <h2
-              className="font-display text-h2 max-w-3xl"
+              className="font-display text-h2 mx-auto max-w-2xl"
               style={{ color: "var(--text-primary)", fontWeight: 600 }}
             >
-              Cities and towns we serve.
+              Don&apos;t see your town listed?
             </h2>
+            <p
+              className="mx-auto mt-5 max-w-xl text-base leading-relaxed md:text-lg"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              We regularly travel throughout central New Hampshire. If you&apos;re within roughly 25 miles of {siteConfig.address.city}, you&apos;re likely on the route. Call and we&apos;ll tell you straight.
+            </p>
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+              <Button href={telHref(siteConfig.phoneTel)} variant="primary">
+                Call {siteConfig.phone}
+              </Button>
+              <Button href="/contact" variant="secondary">
+                Send a Message
+              </Button>
+            </div>
           </FadeUp>
+        </div>
+      </section>
+    </>
+  );
+}
 
+function TierSection({
+  tierKey,
+  label,
+  headline,
+  note,
+  cities,
+}: {
+  tierKey: TierKey;
+  label: string;
+  headline: string;
+  note: string;
+  cities: typeof serviceAreas;
+}) {
+  const accentMap: Record<TierKey, string> = {
+    primary: "rgba(127,42,31,0.45)",
+    extended: "rgba(196,184,154,0.45)",
+    premium: "rgba(201,168,76,0.55)",
+  };
+  return (
+    <section
+      className="border-t py-16 md:py-24"
+      style={{
+        background: "transparent",
+        borderColor: "rgba(184,115,51,0.12)",
+      }}
+    >
+      <div className="mx-auto w-full max-w-[1320px] px-6 md:px-8 lg:px-12">
+        <FadeUp delay={0} duration={0.5} distance={12}>
+          <div className="flex items-center gap-3">
+            <span
+              aria-hidden="true"
+              className="inline-block h-3 w-3 rounded-full"
+              style={{ background: accentMap[tierKey] }}
+            />
+            <p className="text-eyebrow">{label}</p>
+          </div>
+          <h2
+            className="font-display text-h2 mt-3 max-w-3xl"
+            style={{ color: "var(--text-primary)", fontWeight: 600 }}
+          >
+            {headline}
+          </h2>
+          <p
+            className="mt-4 max-w-2xl text-base leading-relaxed md:text-lg"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            {note}
+          </p>
+        </FadeUp>
+
+        {cities.length > 0 ? (
           <div className="mt-10 grid grid-cols-1 gap-6 md:mt-14 md:grid-cols-2 md:gap-8">
-            {serviceAreas.map((area, idx) => (
+            {cities.map((area, idx) => (
               <FadeUp
                 key={area.slug}
                 delay={Math.min(0.05 + idx * 0.05, 0.35)}
@@ -94,6 +185,8 @@ export function ServiceAreasClient() {
                     style={{
                       background: "var(--bg-card)",
                       borderColor: "rgba(184,115,51,0.18)",
+                      borderTopWidth: 3,
+                      borderTopColor: accentMap[tierKey],
                     }}
                   >
                     <div className="flex items-start justify-between gap-4">
@@ -148,44 +241,28 @@ export function ServiceAreasClient() {
               </FadeUp>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* ── Don't See Your Town CTA (dark) ──────────────────────────────── */}
-      <section
-        className="border-t py-16 md:py-24"
-        style={{
-          background: "transparent",
-          borderColor: "rgba(184,115,51,0.12)",
-        }}
-      >
-        <div className="mx-auto w-full max-w-[820px] px-6 text-center md:px-8 lg:px-12">
-          <FadeUp delay={0} duration={0.5} distance={14}>
-            <p className="text-eyebrow mb-4">Outside The Six?</p>
-            <h2
-              className="font-display text-h2 mx-auto max-w-2xl"
-              style={{ color: "var(--text-primary)", fontWeight: 600 }}
+        ) : (
+          <FadeUp delay={0.15} duration={0.5} distance={14}>
+            <div
+              className="mt-10 rounded-md border border-dashed p-6 md:p-8"
+              style={{
+                borderColor: "rgba(184,115,51,0.25)",
+                background: "var(--bg-card)",
+              }}
             >
-              Don&apos;t see your town listed?
-            </h2>
-            <p
-              className="mx-auto mt-5 max-w-xl text-base leading-relaxed md:text-lg"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              We regularly travel throughout central New Hampshire. If you&apos;re within roughly 25 miles of {siteConfig.address.city}, you&apos;re likely on the route. Call and we&apos;ll tell you straight.
-            </p>
-            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
-              <Button href={telHref(siteConfig.phoneTel)} variant="primary">
-                Call {siteConfig.phone}
-              </Button>
-              <Button href="/contact" variant="secondary">
-                Send a Message
-              </Button>
+              <p
+                className="text-sm leading-relaxed md:text-base"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                We travel for the right project. Contact us with the address and
+                the scope, and we&apos;ll tell you straight whether we can fit
+                it in.
+              </p>
             </div>
           </FadeUp>
-        </div>
-      </section>
-    </>
+        )}
+      </div>
+    </section>
   );
 }
 

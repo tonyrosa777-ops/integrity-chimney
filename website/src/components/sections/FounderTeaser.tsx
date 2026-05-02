@@ -8,7 +8,8 @@
 
 import { FadeUp } from "@/components/animations";
 import { Button } from "@/components/ui/Button";
-import { founder, siteConfig } from "@/data/site";
+import { founder, siteConfig, sisterBrand } from "@/data/site";
+import { telHref } from "@/lib/utils";
 
 function bioExcerpt(bio: string): string {
   // First two sentences, no em dashes inserted.
@@ -120,6 +121,113 @@ export function FounderTeaser() {
                 </Button>
               </div>
             </FadeUp>
+          </div>
+        </div>
+
+        {/* ── Sister Brand Callout — One Owner. Two Companies. One Standard. ── */}
+        <div className="mt-20 md:mt-28">
+          <FadeUp delay={0} duration={0.6} distance={16}>
+            <div className="text-center">
+              <p className="text-eyebrow mb-3" style={{ color: "var(--accent)" }}>
+                {sisterBrand.eyebrow}
+              </p>
+              <h3
+                className="font-display text-h2 mx-auto max-w-3xl"
+                style={{ color: "var(--text-primary)", fontWeight: 600 }}
+              >
+                {sisterBrand.headline}
+              </h3>
+              <p
+                className="mx-auto mt-5 max-w-2xl text-base leading-relaxed md:text-lg"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                {sisterBrand.body}
+              </p>
+            </div>
+          </FadeUp>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 md:mt-14 md:grid-cols-2 md:gap-8">
+            {sisterBrand.pillars.map((pillar, idx) => (
+              <FadeUp
+                key={pillar.brandName}
+                delay={0.1 + idx * 0.1}
+                duration={0.6}
+                distance={18}
+                className="h-full"
+              >
+                <div
+                  className="flex h-full flex-col rounded-md border p-6 md:p-8"
+                  style={{
+                    background: "var(--bg-card)",
+                    borderColor:
+                      pillar.accent === "primary"
+                        ? "rgba(127,42,31,0.35)"
+                        : "rgba(184,115,51,0.35)",
+                  }}
+                >
+                  <div className="flex items-center gap-3">
+                    <span
+                      className="font-mono inline-flex items-center rounded-sm px-2 py-1 text-[0.65rem] uppercase tracking-[0.12em]"
+                      style={{
+                        background:
+                          pillar.accent === "primary"
+                            ? "rgba(127,42,31,0.2)"
+                            : "rgba(184,115,51,0.2)",
+                        color:
+                          pillar.accent === "primary"
+                            ? "var(--primary, #B85C45)"
+                            : "var(--accent)",
+                      }}
+                    >
+                      {pillar.focus}
+                    </span>
+                  </div>
+                  <h4
+                    className="font-display mt-4 text-h3"
+                    style={{ color: "var(--text-primary)", fontWeight: 600 }}
+                  >
+                    {pillar.brandName}
+                  </h4>
+                  <p
+                    className="mt-3 text-sm leading-relaxed md:text-base"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    {pillar.description}
+                  </p>
+                  <ul className="mt-5 space-y-2">
+                    {pillar.bullets.map((bullet) => (
+                      <li
+                        key={bullet}
+                        className="flex items-start gap-2.5 text-sm leading-snug"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"
+                        />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-auto pt-6">
+                    <a
+                      href={telHref(pillar.phoneTel)}
+                      className="font-mono block text-sm transition-colors hover:opacity-80"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      {pillar.phone}
+                    </a>
+                    <a
+                      href={pillar.ctaHref}
+                      className="font-mono mt-2 inline-block text-xs uppercase tracking-[0.12em] transition-opacity hover:opacity-80"
+                      style={{ color: "var(--text-secondary)" }}
+                    >
+                      {pillar.ctaLabel} →
+                    </a>
+                  </div>
+                </div>
+              </FadeUp>
+            ))}
           </div>
         </div>
       </div>

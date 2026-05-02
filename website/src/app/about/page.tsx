@@ -3,7 +3,8 @@ import Link from "next/link";
 import { FadeUp } from "@/components/animations";
 import { CountUp } from "@/components/animations/CountUp";
 import { Button } from "@/components/ui/Button";
-import { founder, siteConfig, testimonials } from "@/data/site";
+import { founder, siteConfig, sisterBrand, testimonials } from "@/data/site";
+import { telHref } from "@/lib/utils";
 
 /**
  * /about - Founder story, credentials, stats, historical-restoration testimonials,
@@ -154,6 +155,132 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ============== Two Companies ============== */}
+      <section
+        id="two-companies"
+        className="relative py-20 md:py-28"
+        style={{ background: "transparent" }}
+      >
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 opacity-25"
+          style={{
+            background:
+              "radial-gradient(ellipse at 20% 30%, rgba(127,42,31,0.18) 0%, rgba(10,10,10,0) 60%), radial-gradient(ellipse at 80% 70%, rgba(184,115,51,0.18) 0%, rgba(10,10,10,0) 55%)",
+          }}
+        />
+        <div className="relative mx-auto max-w-[1100px] px-6 md:px-8 lg:px-12">
+          <FadeUp duration={0.5} distance={12}>
+            <p className="text-eyebrow mb-4">{sisterBrand.eyebrow}</p>
+          </FadeUp>
+          <FadeUp delay={0.1} duration={0.6} distance={16}>
+            <h2
+              className="text-h2 font-display max-w-3xl font-semibold"
+              style={{ color: "var(--text-primary)" }}
+            >
+              {sisterBrand.headline}
+            </h2>
+          </FadeUp>
+          <FadeUp delay={0.2} duration={0.6} distance={14}>
+            <p
+              className="mt-5 max-w-2xl text-base leading-relaxed md:text-lg"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              {sisterBrand.body}
+            </p>
+          </FadeUp>
+
+          <div className="mt-12 grid grid-cols-1 gap-6 md:mt-14 md:grid-cols-2 md:gap-8">
+            {sisterBrand.pillars.map((pillar, idx) => (
+              <FadeUp
+                key={pillar.brandName}
+                delay={0.1 + idx * 0.1}
+                duration={0.6}
+                distance={18}
+                className="h-full"
+              >
+                <article
+                  className="flex h-full flex-col rounded-md border p-6 md:p-8"
+                  style={{
+                    background: "var(--bg-card)",
+                    borderColor:
+                      pillar.accent === "primary"
+                        ? "rgba(127,42,31,0.35)"
+                        : "rgba(184,115,51,0.35)",
+                  }}
+                >
+                  <span
+                    className="font-mono inline-flex w-fit items-center rounded-sm px-2 py-1 text-[0.65rem] uppercase tracking-[0.12em]"
+                    style={{
+                      background:
+                        pillar.accent === "primary"
+                          ? "rgba(127,42,31,0.2)"
+                          : "rgba(184,115,51,0.2)",
+                      color:
+                        pillar.accent === "primary"
+                          ? "var(--primary, #B85C45)"
+                          : "var(--accent)",
+                    }}
+                  >
+                    {pillar.focus}
+                  </span>
+                  <h3
+                    className="font-display mt-4 text-h3"
+                    style={{ color: "var(--text-primary)", fontWeight: 600 }}
+                  >
+                    {pillar.brandName}
+                  </h3>
+                  <p
+                    className="mt-3 text-sm leading-relaxed md:text-base"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    {pillar.description}
+                  </p>
+                  <ul className="mt-5 space-y-2">
+                    {pillar.bullets.map((bullet) => (
+                      <li
+                        key={bullet}
+                        className="flex items-start gap-2.5 text-sm leading-snug"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="mt-1.5 inline-block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent"
+                        />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-auto pt-6 space-y-2 font-mono text-sm">
+                    <a
+                      href={telHref(pillar.phoneTel)}
+                      className="block transition-colors hover:opacity-80"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      {pillar.phone}
+                    </a>
+                    <a
+                      href={`mailto:${pillar.email}`}
+                      className="block text-xs transition-colors hover:opacity-80"
+                      style={{ color: "var(--text-secondary)" }}
+                    >
+                      {pillar.email}
+                    </a>
+                    <Link
+                      href={pillar.ctaHref}
+                      className="mt-2 inline-block text-xs uppercase tracking-[0.12em] transition-opacity hover:opacity-80"
+                      style={{ color: "var(--accent)" }}
+                    >
+                      {pillar.ctaLabel} →
+                    </Link>
+                  </div>
+                </article>
+              </FadeUp>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ============== Stats row ============== */}
       <section
         className="relative py-16 md:py-20"
@@ -162,11 +289,14 @@ export default function AboutPage() {
         <div className="mx-auto max-w-[1100px] px-6 md:px-8 lg:px-12">
           <div className="grid grid-cols-2 gap-6 md:grid-cols-4 md:gap-8">
             <StatBlock
+              value={2}
+              label="Specialized companies"
+            />
+            <StatBlock
               value={founder.yearsExperience}
               suffix="+"
               label="Years owner-operated"
             />
-            <StatBlock value={36} label="Chimney projects, 36 referrals" />
             <StatBlock value={24} suffix="hr" label="Callback SLA" />
             <StatBlock value={5} suffix="-yr" label="Workmanship guarantee" />
           </div>
