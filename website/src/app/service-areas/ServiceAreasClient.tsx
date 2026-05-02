@@ -42,7 +42,7 @@ export function ServiceAreasClient() {
               className="font-display text-display max-w-4xl"
               style={{ color: "var(--text-primary)", fontWeight: 600 }}
             >
-              Chimney + Masonry + Roofing Across Central NH
+              Chimney, Masonry, Siding & Roofing Across Central NH
             </h1>
           </FadeUp>
 
@@ -51,7 +51,7 @@ export function ServiceAreasClient() {
               className="mt-6 max-w-2xl text-base leading-relaxed md:text-lg"
               style={{ color: "var(--text-secondary)" }}
             >
-              Based in {siteConfig.address.city}, {siteConfig.address.state}. We work the houses {siteConfig.address.city} and the surrounding towns have been heating for two centuries. Six core towns on the regular weekly route, plus everything within a 25-mile radius. Free estimates over $500. 24-hour callback.
+              Based in {siteConfig.address.city}, {siteConfig.address.state}. Two specialized companies under one owner: Integrity Chimney for chimneys and historic masonry, Integrity Exteriors NH for siding and roofing. Six core towns on the regular weekly route. Free estimates. 24-hour callback.
             </p>
           </FadeUp>
         </div>

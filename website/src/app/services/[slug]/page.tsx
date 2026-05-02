@@ -32,6 +32,11 @@ export async function generateMetadata({
   const service = services.find((s) => s.slug === slug);
   if (!service) return {};
 
+  const brandShortName =
+    service.pillar === "exteriors"
+      ? siteConfig.secondaryBrand.shortName
+      : siteConfig.shortName;
+
   const title = `${service.name} in Bow, NH and Central New Hampshire`;
   const description = `${service.tagline} ${service.startingPrice}. Owner-operated by ${siteConfig.owner} in Bow, NH. Free estimates, fully insured, 24-hour callback.`;
 
@@ -39,13 +44,13 @@ export async function generateMetadata({
     title,
     description,
     openGraph: {
-      title: `${service.name} | ${siteConfig.shortName}`,
+      title: `${service.name} | ${brandShortName}`,
       description,
       url: `${siteConfig.url}/services/${service.slug}`,
     },
     twitter: {
       card: "summary_large_image",
-      title: `${service.name} | ${siteConfig.shortName}`,
+      title: `${service.name} | ${brandShortName}`,
       description,
     },
   };

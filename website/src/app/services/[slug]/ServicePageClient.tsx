@@ -56,6 +56,20 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
     .filter((t) => t.service === service.name)
     .slice(0, 3);
 
+  // Pillar-aware brand routing: exteriors-pillar services (siding, roofing)
+  // surface the Integrity Exteriors NH contact channel; everything else uses
+  // the primary Integrity Chimney number.
+  const isExteriors = service.pillar === "exteriors";
+  const brandPhone = isExteriors
+    ? siteConfig.secondaryBrand.phone
+    : siteConfig.phone;
+  const brandPhoneTel = isExteriors
+    ? siteConfig.secondaryBrand.phoneTel
+    : siteConfig.phoneTel;
+  const brandLabel = isExteriors
+    ? siteConfig.secondaryBrand.shortName
+    : siteConfig.shortName;
+
   return (
     <div>
       <style
@@ -138,11 +152,8 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
               <Button href="/booking" variant="primary">
                 Book Inspection
               </Button>
-              <Button
-                href={telHref(siteConfig.phoneTel)}
-                variant="secondary"
-              >
-                Call {siteConfig.phone}
+              <Button href={telHref(brandPhoneTel)} variant="secondary">
+                Call {brandPhone}
               </Button>
               <span
                 className="font-mono text-xs uppercase tracking-[0.12em] sm:ml-2"
@@ -152,6 +163,19 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
               </span>
             </div>
           </FadeUp>
+          {isExteriors ? (
+            <FadeUp delay={0.75} duration={0.5} distance={12}>
+              <p
+                className="mt-5 max-w-2xl text-sm leading-relaxed"
+                style={{ color: "var(--text-muted)" }}
+              >
+                {service.name} is delivered under{" "}
+                <span style={{ color: "var(--accent)" }}>{brandLabel}</span>,
+                Kevin Fredrickson&apos;s sister brand for siding and roofing.
+                Same owner, same crew, separate line.
+              </p>
+            </FadeUp>
+          ) : null}
         </div>
       </section>
 
@@ -501,11 +525,8 @@ export function ServicePageClient({ service }: ServicePageClientProps) {
               <Button href="/booking" variant="primary">
                 Book Inspection
               </Button>
-              <Button
-                href={telHref(siteConfig.phoneTel)}
-                variant="secondary"
-              >
-                Call {siteConfig.phone}
+              <Button href={telHref(brandPhoneTel)} variant="secondary">
+                Call {brandPhone}
               </Button>
             </div>
           </FadeUp>
